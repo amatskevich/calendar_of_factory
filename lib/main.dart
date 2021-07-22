@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'screens/about_screen.dart';
 import 'screens/calendar_screen.dart';
 import 'screens/configuration_screen.dart';
-import 'screens/single_main_screen.dart';
+import 'single_main_screen/single_main_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +20,17 @@ class _MyAppState extends State<MyApp> {
       title: 'Смены Полимира',
       initialRoute: '/',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // brightness: Brightness.dark,
+        primaryColor: Colors.lightBlue[800],
+        accentColor: Colors.cyan[600],
+
+        fontFamily: 'Georgia',
+
+        textTheme: TextTheme(
+          headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+          headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+          bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+        ),
       ),
 //      home: SingleMainScreen(),
       routes: {
