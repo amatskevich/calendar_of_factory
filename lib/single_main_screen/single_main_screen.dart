@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import 'day_widget.dart';
+
 class SingleMainScreen extends StatefulWidget {
   @override
   _SingleMainScreenState createState() => _SingleMainScreenState();
@@ -28,14 +30,14 @@ class _SingleMainScreenState extends State<SingleMainScreen> {
         children: [
           Info('Смена А'),
           DateInfo(),
-          ListView.builder(
-            itemBuilder: (ctx, index) {
-              return Text('data');
-            },
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: 1,
-          )
+          // ListView.builder(
+          //   itemBuilder: (ctx, index) {
+          //     return Day(date: DateTime.now());
+          //   },
+          //   scrollDirection: Axis.vertical,
+          //   shrinkWrap: true,
+          //   itemCount: 1,
+          // ),
         ],
       ),
     );
