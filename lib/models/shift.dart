@@ -1,4 +1,4 @@
-import 'package:calendaroffactory/models/Position.dart';
+import 'package:calendaroffactory/models/position.dart';
 
 class Shift {
   final String type;

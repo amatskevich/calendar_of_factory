@@ -1,7 +1,7 @@
-import 'package:calendaroffactory/models/Position.dart';
-import 'package:calendaroffactory/models/Shift.dart';
-import 'package:calendaroffactory/models/Timetable.dart';
-import 'package:calendaroffactory/models/TimetableType.dart';
+import 'package:calendaroffactory/models/position.dart';
+import 'package:calendaroffactory/models/shift.dart';
+import 'package:calendaroffactory/models/timetable.dart';
+import 'package:calendaroffactory/models/timetable_type.dart';
 import 'package:flutter/material.dart';
 
 class Timetables with ChangeNotifier {

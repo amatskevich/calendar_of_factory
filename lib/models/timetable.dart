@@ -1,5 +1,5 @@
-import 'Shift.dart';
-import 'TimetableType.dart';
+import 'shift.dart';
+import 'timetable_type.dart';
 
 class Timetable {
   final TimetableType type;
