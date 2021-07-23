@@ -1,5 +1,9 @@
+import 'package:calendaroffactory/calendar_engine.dart';
+import 'package:calendaroffactory/models/position.dart';
+import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class DayItem extends StatelessWidget {
   final int index;
@@ -10,8 +14,10 @@ class DayItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var date = selectedDate.add(Duration(days: index));
+    var shift = Provider.of<UserInfo>(context, listen: false).shift;
+    Position position = CalendarEngine.calculatePositionForDay(day: date, shift: shift);
     return Container(
-      decoration: BoxDecoration(color: Colors.cyanAccent),
+      decoration: BoxDecoration(color: position.color),
       margin: EdgeInsets.all(5),
       padding: EdgeInsets.all(5),
       child: Column(
@@ -19,7 +25,8 @@ class DayItem extends StatelessWidget {
           Container(
             width: double.infinity,
             child: Text(
-              'С НОЧИ В НОЧЬ',
+              // 'С НОЧИ В НОЧЬ',
+              position.description,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 25),
             ),

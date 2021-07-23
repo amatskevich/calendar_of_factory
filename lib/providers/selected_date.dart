@@ -13,7 +13,6 @@ class SelectedDate with ChangeNotifier {
     notifyListeners();
   }
 
-
   set selectedDate(DateTime value) {
     _selectedDate = value;
     notifyListeners();

@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
+
 class Position {
   final String name;
   final String sign;
-  final String color;
+  final Color color;
   final double workHours;
   final String description;
 

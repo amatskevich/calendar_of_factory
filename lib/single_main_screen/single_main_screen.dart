@@ -30,7 +30,7 @@ class _SingleMainScreenState extends State<SingleMainScreen> {
       drawer: const MainDrawer(),
       body: Column(
         children: [
-          Info('Смена А'),
+          Info(),
           DateInfo(),
           ListView.builder(
             itemBuilder: (ctx, index) {

@@ -1,4 +1,5 @@
 import 'package:calendaroffactory/providers/selected_date.dart';
+import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value( value: SelectedDate()),
+        ChangeNotifierProvider.value( value: UserInfo()),
       ],
       child: MaterialApp(
         title: 'Смены Полимира',
