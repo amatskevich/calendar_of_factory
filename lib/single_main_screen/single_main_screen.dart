@@ -30,14 +30,15 @@ class _SingleMainScreenState extends State<SingleMainScreen> {
         children: [
           Info('Смена А'),
           DateInfo(),
-          // ListView.builder(
-          //   itemBuilder: (ctx, index) {
-          //     return Day(date: DateTime.now());
-          //   },
-          //   scrollDirection: Axis.vertical,
-          //   shrinkWrap: true,
-          //   itemCount: 1,
-          // ),
+          ListView.builder(
+            itemBuilder: (ctx, index) {
+              return DayItem(date: DateTime.now());
+              // return Text('WTF');
+            },
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: 4,
+          ),
         ],
       ),
     );
