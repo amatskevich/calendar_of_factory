@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
 
+  const MainDrawer();
+
   Widget buildListTitle(String title, IconData icon, Function tapHandler) {
     return ListTile(
       leading: Icon(

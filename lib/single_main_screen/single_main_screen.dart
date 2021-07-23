@@ -1,9 +1,11 @@
+import 'package:calendaroffactory/providers/selected_date.dart';
 import 'package:calendaroffactory/single_main_screen/date_widget.dart';
 import 'package:calendaroffactory/single_main_screen/info_widget.dart';
 import 'package:calendaroffactory/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:provider/provider.dart';
 
 import 'day_widget.dart';
 
@@ -25,15 +27,16 @@ class _SingleMainScreenState extends State<SingleMainScreen> {
       appBar: AppBar(
         title: const Text('Смены Полимира'),
       ),
-      drawer: MainDrawer(),
+      drawer: const MainDrawer(),
       body: Column(
         children: [
           Info('Смена А'),
           DateInfo(),
           ListView.builder(
             itemBuilder: (ctx, index) {
-              return DayItem(date: DateTime.now());
-              // return Text('WTF');
+              return Consumer<SelectedDate>(builder: (context, cart, child) {
+                return DayItem(index: index, selectedDate: cart.selectedDate);
+              });
             },
             scrollDirection: Axis.vertical,
             shrinkWrap: true,

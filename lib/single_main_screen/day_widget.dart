@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class DayItem extends StatelessWidget {
-  final DateTime date;
+  final int index;
+  final DateTime selectedDate;
 
-  const DayItem({Key? key, required this.date}) : super(key: key);
+  const DayItem({Key? key, required this.index, required this.selectedDate}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var date = selectedDate.add(Duration(days: index));
     return Container(
       decoration: BoxDecoration(color: Colors.cyanAccent),
       margin: EdgeInsets.all(5),
