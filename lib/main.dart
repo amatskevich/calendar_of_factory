@@ -1,3 +1,5 @@
+import 'package:calendaroffactory/configuration_main_screen/configuration_main_screen.dart';
+import 'package:calendaroffactory/configuration_shifts_data/configuration_shifts_data_screen.dart';
 import 'package:calendaroffactory/providers/selected_date.dart';
 import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +7,6 @@ import 'package:provider/provider.dart';
 
 import 'screens/about_screen.dart';
 import 'screens/calendar_screen.dart';
-import 'screens/configuration_screen.dart';
 import 'single_main_screen/single_main_screen.dart';
 
 void main() => runApp(MyApp());
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider.value( value: SelectedDate()),
-        ChangeNotifierProvider.value( value: UserInfo()),
+        ChangeNotifierProvider.value(value: SelectedDate()),
+        ChangeNotifierProvider.value(value: UserInfo()),
       ],
       child: MaterialApp(
         title: 'Смены Полимира',
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => SingleMainScreen(),
           CalendarScreen.routeName: (_) => CalendarScreen(),
-          ConfigurationScreen.routeName: (_) => ConfigurationScreen(),
+          ConfigurationMainScreen.routeName: (_) => ConfigurationMainScreen(),
+          ConfigurationShiftsDataScreen.routeName: (_) => ConfigurationShiftsDataScreen(),
           AboutScreen.routeName: (_) => AboutScreen(),
         },
       ),

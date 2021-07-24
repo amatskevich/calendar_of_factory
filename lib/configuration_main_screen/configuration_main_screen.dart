@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ConfigurationScreen extends StatelessWidget {
+class ConfigurationMainScreen extends StatelessWidget {
 
-  static const routeName = '/configuration';
+  static const routeName = '/configuration/main';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Настройки'),
+        title: Text('Настройка главного экрана'),
       ),
       body: ListView(),
     );
