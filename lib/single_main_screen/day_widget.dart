@@ -17,7 +17,13 @@ class DayItem extends StatelessWidget {
     var shift = Provider.of<UserInfo>(context, listen: false).shift;
     Position position = CalendarEngine.calculatePositionForDay(day: date, shift: shift);
     return Container(
-      decoration: BoxDecoration(color: position.color),
+      decoration: BoxDecoration(
+        color: position.color,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(color: Colors.black),
+        ],
+      ),
       margin: EdgeInsets.all(5),
       padding: EdgeInsets.all(5),
       child: Column(
