@@ -5,6 +5,13 @@ import 'package:calendaroffactory/models/timetable_type.dart';
 import 'package:flutter/material.dart';
 
 class Timetables with ChangeNotifier {
+  
+  static const colorInDay = const Color(0xFFFFBABA);
+  static const colorAfterNight = const Color(0xFFBBFFBA);
+  static const colorInNight = const Color(0xFFBACFFF);
+  static const colorInEvening = const Color(0xFFF1BAFF);
+  static const colorDayOff = const Color(0xFFFFFFFF);
+  
   static final List<Timetable> _timetables = [
     Timetable(
       type: TimetableType.TWELFTH_30,
@@ -47,49 +54,49 @@ class Timetables with ChangeNotifier {
         Position(
             name: '1-я С УТРА',
             sign: '8',
-            color: Colors.amber,
+            color: colorInDay,
             workHours: 12,
             description: 'В день'),
         Position(
             name: '2-я С УТРА',
             sign: '8',
-            color: Colors.cyanAccent,
+            color: colorInDay,
             workHours: 12,
             description: 'В день'),
         Position(
             name: 'ВЫХОДНОЙ',
             sign: '*',
-            color: Colors.cyanAccent,
+            color: colorDayOff,
             workHours: 0,
             description: 'Выходной'),
         Position(
             name: 'В НОЧЬ',
             sign: '20',
-            color: Colors.cyanAccent,
+            color: colorInNight,
             workHours: 4,
             description: 'В ночь'),
         Position(
             name: 'С НОЧИ В НОЧЬ',
             sign: '20',
-            color: Colors.cyanAccent,
+            color: colorInNight,
             workHours: 12,
             description: 'В ночь'),
         Position(
             name: 'ОТСЫПНОЙ',
             sign: 'О',
-            color: Colors.cyanAccent,
+            color: colorAfterNight,
             workHours: 8,
             description: 'Отсыпной'),
         Position(
             name: 'ВЫХОДНОЙ',
             sign: '*',
-            color: Colors.cyanAccent,
+            color: colorDayOff,
             workHours: 0,
             description: 'Выходной'),
         Position(
             name: 'ЗАВТРА С УТРА',
             sign: '*',
-            color: Colors.cyanAccent,
+            color: colorDayOff,
             workHours: 0,
             description: 'Выходной'),
       ];
@@ -98,61 +105,61 @@ class Timetables with ChangeNotifier {
         Position(
             name: '1-я НОЧЬ',
             sign: '24',
-            color: Colors.cyanAccent,
+            color: colorInNight,
             workHours: 0.5,
             description: 'В ночь'),
         Position(
             name: '2-я НОЧЬ',
             sign: '24',
-            color: Colors.cyanAccent,
+            color: colorInNight,
             workHours: 8.5,
             description: 'В ночь'),
         Position(
             name: 'ОТСЫПНОЙ',
             sign: 'О',
-            color: Colors.cyanAccent,
+            color: colorAfterNight,
             workHours: 8,
             description: 'Отсыпной'),
         Position(
             name: 'ВЫХОДНОЙ',
             sign: '*',
-            color: Colors.cyanAccent,
+            color: colorDayOff,
             workHours: 0,
             description: 'Выходной'),
         Position(
             name: 'ВЫХОДНОЙ',
             sign: '*',
-            color: Colors.cyanAccent,
+            color: colorDayOff,
             workHours: 0,
             description: 'Выходной'),
         Position(
             name: '1-я С 4-х',
             sign: '16',
-            color: Colors.cyanAccent,
+            color: colorInEvening,
             workHours: 7.5,
             description: 'Вечерняя'),
         Position(
             name: '2-я С 4-х',
             sign: '16',
-            color: Colors.cyanAccent,
+            color: colorInEvening,
             workHours: 7.5,
             description: 'Вечерняя'),
         Position(
             name: 'ВЫХОДНОЙ',
             sign: '*',
-            color: Colors.cyanAccent,
+            color: colorDayOff,
             workHours: 0,
             description: 'Выходной'),
         Position(
             name: '1-я С УТРА',
             sign: '8',
-            color: Colors.cyanAccent,
+            color: colorInDay,
             workHours: 8,
             description: 'С утра'),
         Position(
             name: '2-я С УТРА',
             sign: '8',
-            color: Colors.cyanAccent,
+            color: colorInDay,
             workHours: 8,
             description: 'С утра'),
       ];
@@ -161,25 +168,25 @@ class Timetables with ChangeNotifier {
         Position(
             name: '2-й ВЫХОДНОЙ',
             sign: '*',
-            color: Colors.cyanAccent,
+            color: colorDayOff,
             workHours: 0,
             description: 'Выходной'),
         Position(
             name: '1-й ДЕНЬ',
             sign: '8',
-            color: Colors.cyanAccent,
+            color: colorInDay,
             workHours: 11.25,
             description: 'Рабочий'),
         Position(
             name: '2-й ДЕНЬ',
             sign: '8',
-            color: Colors.cyanAccent,
+            color: colorInDay,
             workHours: 11.25,
             description: 'Рабочий'),
         Position(
             name: '1-й ВЫХОДНОЙ',
             sign: '*',
-            color: Colors.cyanAccent,
+            color: colorDayOff,
             workHours: 0,
             description: 'Выходной'),
       ];
