@@ -35,11 +35,18 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
     });
   }
 
-  void _save() {
-    Provider.of<UserInfo>(context, listen: false).addTimetableShift(
-        timetableType: _selectedTimesheet!.type,
-        timetableName: _selectedTimesheet!.description,
-        shift: _selectedShift!);
+  void _save(bool replace) {
+    if(replace) {
+      Provider.of<UserInfo>(context, listen: false).replaceSingleTimetableShift(
+          timetableType: _selectedTimesheet!.type,
+          timetableName: _selectedTimesheet!.description,
+          shift: _selectedShift!);
+    } else {
+      Provider.of<UserInfo>(context, listen: false).addTimetableShift(
+          timetableType: _selectedTimesheet!.type,
+          timetableName: _selectedTimesheet!.description,
+          shift: _selectedShift!);
+    }
     Navigator.pop(context);
   }
 
@@ -51,9 +58,10 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final replace = ModalRoute.of(context)!.settings.arguments as bool;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Добавление смены'),
+        title: replace ? Text('Изменение смены') : Text('Добавление смены'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -86,8 +94,8 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
                   ),
                 ),
                 ElevatedButton(
-                    onPressed: _selectedTimesheet != null && _selectedShift != null ? _save : null,
-                    child: Text('Добавить', style: TextStyle(fontSize: 20))),
+                    onPressed: _selectedTimesheet != null && _selectedShift != null ? () => _save(replace) : null,
+                    child: Text('Сохранить', style: TextStyle(fontSize: 20))),
               ],
             ),
           ],

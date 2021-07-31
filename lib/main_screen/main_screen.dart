@@ -33,13 +33,25 @@ class _MainScreenState extends State<MainScreen> {
       body: Column(
         children: [
           Info(),
+          const Divider(
+            height: 20,
+            thickness: 3,
+            indent: 20,
+            endIndent: 20,
+          ),
           DateInfo(),
+          const Divider(
+            height: 10,
+            thickness: 1,
+            indent: 20,
+            endIndent: 20,
+          ),
           _generateMainInformation(timetables),
         ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () => Navigator.of(context).pushNamed(ConfigurationMainScreen.routeName),
+        onPressed: () => Navigator.of(context).pushNamed(ConfigurationMainScreen.routeName, arguments: false),
       ),
     );
   }

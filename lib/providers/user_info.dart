@@ -17,6 +17,15 @@ class UserInfo with ChangeNotifier {
 
   List<TimetableShift> get data => [..._data];
 
+  void replaceSingleTimetableShift({
+    required TimetableType timetableType,
+    required String timetableName,
+    required Shift shift,
+  }) {
+    _data.clear();
+    addTimetableShift(timetableType: timetableType, timetableName: timetableName, shift: shift);
+  }
+
   void addTimetableShift({
     required TimetableType timetableType,
     required String timetableName,
