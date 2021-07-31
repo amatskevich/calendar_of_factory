@@ -5,26 +5,28 @@ import 'package:flutter/material.dart';
 import '../models/timetable_type.dart';
 
 class UserInfo with ChangeNotifier {
-  List<TimetableShift> data = [];
+  List<TimetableShift> _data = [];
 
-  TimetableType? get timetable => data.isNotEmpty ? data[0].timetableType : null;
+  TimetableType? get timetable => _data.isNotEmpty ? _data[0].timetableType : null;
 
-  Shift? get shift => data.isNotEmpty ? data[0].shifts[0] : null;
+  Shift? get shift => _data.isNotEmpty ? _data[0].shifts[0] : null;
 
   String? getShiftName() => shift?.name;
 
   Position? getPositionByIndex(int index) => shift?.positions[index];
+
+  List<TimetableShift> get data => [..._data];
 
   void addTimetableShift({
     required TimetableType timetableType,
     required String timetableName,
     required Shift shift,
   }) {
-    var timetableShift = data.firstWhere(
+    var timetableShift = _data.firstWhere(
       (element) => element.timetableType == timetableType,
       orElse: () {
         var ts = TimetableShift(timetableType: timetableType, timetableName: timetableName);
-        data.add(ts);
+        _data.add(ts);
         return ts;
       },
     );

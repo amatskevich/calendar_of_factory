@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'providers/timetables.dart';
 import 'screens/about_screen.dart';
 import 'screens/calendar_screen.dart';
-import 'single_main_screen/single_main_screen.dart';
+import 'main_screen/main_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         ),
 //      home: SingleMainScreen(),
         routes: {
-          '/': (context) => SingleMainScreen(),
+          '/': (context) => MainScreen(),
           CalendarScreen.routeName: (_) => CalendarScreen(),
           ConfigurationMainScreen.routeName: (_) => ConfigurationMainScreen(),
           ConfigurationShiftsDataScreen.routeName: (_) => ConfigurationShiftsDataScreen(),
