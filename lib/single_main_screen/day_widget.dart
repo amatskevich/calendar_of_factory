@@ -14,7 +14,7 @@ class DayItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var date = selectedDate.add(Duration(days: index));
-    var shift = Provider.of<UserInfo>(context, listen: false).shift;
+    var shift = Provider.of<UserInfo>(context, listen: false).shift!;
     Position position = CalendarEngine.calculatePositionForDay(day: date, shift: shift);
     return Container(
       decoration: BoxDecoration(

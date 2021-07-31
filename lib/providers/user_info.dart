@@ -1,19 +1,45 @@
 import 'package:calendaroffactory/models/position.dart';
 import 'package:calendaroffactory/models/shift.dart';
-import 'package:calendaroffactory/providers/timetables.dart';
-import '../models/timetable_type.dart';
 import 'package:flutter/material.dart';
 
+import '../models/timetable_type.dart';
+
 class UserInfo with ChangeNotifier {
+  List<TimetableShift> data = [];
 
-  TimetableType _timetable = TimetableType.TWELFTH_30;
-  Shift _shift = Timetables.findByType(TimetableType.TWELFTH_30).shifts.firstWhere((element) => element.name == 'А');
+  TimetableType? get timetable => data.isNotEmpty ? data[0].timetableType : null;
 
-  TimetableType get timetable => _timetable;
+  Shift? get shift => data.isNotEmpty ? data[0].shifts[0] : null;
 
-  Shift get shift => _shift;
+  String? getShiftName() => shift?.name;
 
-  String getShiftName() => _shift.name;
+  Position? getPositionByIndex(int index) => shift?.positions[index];
 
-  Position getPositionByIndex(int index) => _shift.positions[index];
+  void addTimetableShift({
+    required TimetableType timetableType,
+    required String timetableName,
+    required Shift shift,
+  }) {
+    var timetableShift = data.firstWhere(
+      (element) => element.timetableType == timetableType,
+      orElse: () {
+        var ts = TimetableShift(timetableType: timetableType, timetableName: timetableName);
+        data.add(ts);
+        return ts;
+      },
+    );
+    if (timetableShift.shifts.contains(shift)) {
+      return;
+    }
+    timetableShift.shifts.add(shift);
+    notifyListeners();
+  }
+}
+
+class TimetableShift {
+  final TimetableType timetableType;
+  final String timetableName;
+  final List<Shift> shifts = [];
+
+  TimetableShift({required this.timetableType, required this.timetableName});
 }

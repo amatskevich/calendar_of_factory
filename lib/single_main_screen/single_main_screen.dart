@@ -1,4 +1,6 @@
+import 'package:calendaroffactory/configuration_main_screen/configuration_main_screen.dart';
 import 'package:calendaroffactory/providers/selected_date.dart';
+import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:calendaroffactory/single_main_screen/date_widget.dart';
 import 'package:calendaroffactory/single_main_screen/info_widget.dart';
 import 'package:calendaroffactory/widgets/main_drawer.dart';
@@ -23,6 +25,7 @@ class _SingleMainScreenState extends State<SingleMainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var timetable = Provider.of<UserInfo>(context, listen: true).timetable;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Смены Полимира'),
@@ -32,17 +35,23 @@ class _SingleMainScreenState extends State<SingleMainScreen> {
         children: [
           Info(),
           DateInfo(),
-          ListView.builder(
-            itemBuilder: (ctx, index) {
-              return Consumer<SelectedDate>(builder: (context, cart, child) {
-                return DayItem(index: index, selectedDate: cart.selectedDate);
-              });
-            },
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: 4,
-          ),
+          timetable != null
+              ? ListView.builder(
+                  itemBuilder: (ctx, index) {
+                    return Consumer<SelectedDate>(builder: (context, cart, child) {
+                      return DayItem(index: index, selectedDate: cart.selectedDate);
+                    });
+                  },
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: 4,
+                )
+              : Text('Пожалуйста добавьте хотя бы одну смену'),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () => Navigator.of(context).pushNamed(ConfigurationMainScreen.routeName),
       ),
     );
   }

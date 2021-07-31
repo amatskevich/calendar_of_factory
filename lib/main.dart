@@ -5,6 +5,7 @@ import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'providers/timetables.dart';
 import 'screens/about_screen.dart';
 import 'screens/calendar_screen.dart';
 import 'single_main_screen/single_main_screen.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: SelectedDate()),
         ChangeNotifierProvider.value(value: UserInfo()),
+        ChangeNotifierProvider.value(value: Timetables()),
       ],
       child: MaterialApp(
         title: 'Смены Полимира',
