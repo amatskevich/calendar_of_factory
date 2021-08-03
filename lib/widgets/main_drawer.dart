@@ -1,4 +1,3 @@
-import 'package:calendaroffactory/configuration_main_screen/configuration_main_screen.dart';
 import 'package:calendaroffactory/configuration_shifts_data/configuration_shifts_data_screen.dart';
 import 'package:calendaroffactory/screens/about_screen.dart';
 import 'package:calendaroffactory/screens/calendar_screen.dart';
@@ -7,7 +6,7 @@ import 'package:flutter/material.dart';
 class MainDrawer extends StatelessWidget {
   const MainDrawer();
 
-  Widget buildListTitle(String title, IconData icon, Function tapHandler) {
+  Widget buildListTitle(String title, IconData icon, void Function() tapHandler) {
     return ListTile(
       leading: Icon(
         icon,
@@ -20,7 +19,7 @@ class MainDrawer extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: () => tapHandler(),
+      onTap: tapHandler,
     );
   }
 
@@ -46,42 +45,10 @@ class MainDrawer extends StatelessWidget {
             Icons.calendar_today,
             () => Navigator.of(context).pushReplacementNamed(CalendarScreen.routeName),
           ),
-          ExpansionTile(
-            leading: Icon(
-              Icons.settings,
-              size: 26,
-            ),
-            title: Text(
-              'Настройки',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            children: <Widget>[
-              ListTile(
-                title: Text(
-                  'Главного экрана',
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                onTap: () => Navigator.of(context).pushNamed(ConfigurationMainScreen.routeName),
-              ),
-              ListTile(
-                title: Text(
-                  'Информации о сменах',
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                onTap: () => Navigator.of(context).pushNamed(ConfigurationShiftsDataScreen.routeName),
-              ),
-            ],
+          buildListTitle(
+            'Настройки',
+            Icons.settings,
+            () => Navigator.of(context).pushNamed(ConfigurationShiftsDataScreen.routeName),
           ),
           buildListTitle(
             'Справка',

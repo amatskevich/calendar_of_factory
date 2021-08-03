@@ -32,16 +32,9 @@ class _MainScreenState extends State<MainScreen> {
       drawer: const MainDrawer(),
       body: Column(
         children: [
-          Info(),
-          const Divider(
-            height: 20,
-            thickness: 3,
-            indent: 20,
-            endIndent: 20,
-          ),
           DateInfo(),
           const Divider(
-            height: 10,
+            height: 5,
             thickness: 1,
             indent: 20,
             endIndent: 20,

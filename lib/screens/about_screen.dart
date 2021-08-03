@@ -18,9 +18,9 @@ class AboutScreen extends StatelessWidget {
             Text('Приложение для просмотра'),
             Text('графика работы смен'),
             Text('завода Полимир'),
-            Text('Версия - 2.0.0'), //TODO dynamic version
-            Text('Разработчик Андрей Мацкевич'),
-            Text('matskevichandrei@gmail.com'), //TODO link mailto
+            Text('Версия - 2.0.0-beta'), //TODO dynamic version
+            Text('Разработчик ...'),
+            Text('calendar.of.factory@gmail.com'), //TODO link mailto
           ],
         ),
       ),
