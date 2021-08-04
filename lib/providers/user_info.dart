@@ -9,7 +9,7 @@ class UserInfo with ChangeNotifier {
 
   TimetableType? get timetable => _data.isNotEmpty ? _data[0].timetableType : null;
 
-  Shift? get shift => _data.isNotEmpty ? _data[0].shifts[0] : null;
+  Shift? get shift => _data.isNotEmpty ? _data[0].shift : null;
 
   String? getShiftName() => shift?.name;
 
@@ -31,18 +31,11 @@ class UserInfo with ChangeNotifier {
     required String timetableName,
     required Shift shift,
   }) {
-    var timetableShift = _data.firstWhere(
-      (element) => element.timetableType == timetableType,
-      orElse: () {
-        var ts = TimetableShift(timetableType: timetableType, timetableName: timetableName);
-        _data.add(ts);
-        return ts;
-      },
-    );
-    if (timetableShift.shifts.contains(shift)) {
+    var ts = TimetableShift(timetableType: timetableType, timetableName: timetableName, shift: shift,);
+    if (_data.contains(ts)) {
       return;
     }
-    timetableShift.shifts.add(shift);
+    _data.add(ts);
     notifyListeners();
   }
 }
@@ -50,7 +43,19 @@ class UserInfo with ChangeNotifier {
 class TimetableShift {
   final TimetableType timetableType;
   final String timetableName;
-  final List<Shift> shifts = [];
+  final Shift shift;
 
-  TimetableShift({required this.timetableType, required this.timetableName});
+  TimetableShift({required this.timetableType, required this.timetableName, required this.shift,});
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TimetableShift &&
+          runtimeType == other.runtimeType &&
+          timetableType == other.timetableType &&
+          timetableName == other.timetableName &&
+          shift == other.shift;
+
+  @override
+  int get hashCode => timetableType.hashCode ^ timetableName.hashCode ^ shift.hashCode;
 }

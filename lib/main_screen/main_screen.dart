@@ -49,7 +49,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Widget _generateMainInformation(List<TimetableShift> timetable) {
-    var length = timetable.length;
+    final length = timetable.length;
     Widget result;
     if (length == 0) {
       result = const Text(
@@ -59,7 +59,7 @@ class _MainScreenState extends State<MainScreen> {
           fontSize: 25,
         ),
       );
-    } else if (length == 1 && timetable[0].shifts.length == 1) {
+    } else if (length == 1) {
       result = SingleViewWidget();
     } else {
       result = MultiViewWidget();
