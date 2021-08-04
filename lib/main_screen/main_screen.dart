@@ -1,8 +1,7 @@
 import 'package:calendaroffactory/configuration_main_screen/configuration_main_screen.dart';
 import 'package:calendaroffactory/main_screen/date_widget.dart';
-import 'package:calendaroffactory/main_screen/info_widget.dart';
-import 'package:calendaroffactory/main_screen/multi_view_widget.dart';
-import 'package:calendaroffactory/main_screen/single_view_widget.dart';
+import 'package:calendaroffactory/main_screen/multi_view/multi_view_widget.dart';
+import 'package:calendaroffactory/main_screen/single_view/single_view_widget.dart';
 import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:calendaroffactory/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +59,7 @@ class _MainScreenState extends State<MainScreen> {
           fontSize: 25,
         ),
       );
-    } else if (length == 1) {
+    } else if (length == 1 && timetable[0].shifts.length == 1) {
       result = SingleViewWidget();
     } else {
       result = MultiViewWidget();

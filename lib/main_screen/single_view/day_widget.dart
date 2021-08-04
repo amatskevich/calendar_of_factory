@@ -31,7 +31,6 @@ class DayItem extends StatelessWidget {
           Container(
             width: double.infinity,
             child: Text(
-              // 'С НОЧИ В НОЧЬ',
               position.description,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 25),
