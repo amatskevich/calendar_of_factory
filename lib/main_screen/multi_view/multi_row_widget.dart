@@ -1,4 +1,5 @@
 import 'package:calendaroffactory/calendar_engine.dart';
+import 'package:calendaroffactory/edit_shift_screen/edit_shift_screen.dart';
 import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/material.dart';
 
@@ -21,23 +22,29 @@ class MultiRowWidget extends StatelessWidget {
       ),
       margin: EdgeInsets.all(5),
       padding: EdgeInsets.all(5),
-      child: Column(
+      width: double.infinity,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Container(
-            width: double.infinity,
-            child: Text(
-              '${data.timetableName} - Смена: ${data.shift.name}',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 15),
+          Expanded(
+            child: Column(
+              children: [
+                Text(
+                  '${data.timetableName} - Смена: ${data.shift.name}',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15),
+                ),
+                Text(
+                  position.description,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20),
+                ),
+              ],
             ),
           ),
-          Container(
-            width: double.infinity,
-            child: Text(
-              position.description,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20),
-            ),
+          IconButton(
+            onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: data),
+            icon: Icon(Icons.info_outline),
           ),
         ],
       ),

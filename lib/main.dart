@@ -5,6 +5,7 @@ import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'edit_shift_screen/edit_shift_screen.dart';
 import 'providers/timetables.dart';
 import 'screens/about_screen.dart';
 import 'screens/calendar_screen.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
           ConfigurationMainScreen.routeName: (_) => ConfigurationMainScreen(),
           ConfigurationShiftsDataScreen.routeName: (_) => ConfigurationShiftsDataScreen(),
           AboutScreen.routeName: (_) => AboutScreen(),
+          EditShiftScreen.routeName: (_) => EditShiftScreen(),
         },
       ),
     );
