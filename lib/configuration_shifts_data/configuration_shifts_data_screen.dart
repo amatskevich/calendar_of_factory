@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ConfigurationShiftsDataScreen extends StatelessWidget {
-
   static const routeName = '/configuration/shifts';
 
   @override
