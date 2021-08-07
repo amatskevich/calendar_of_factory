@@ -4,7 +4,6 @@ import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-
   group('timetable 12: Test calculation position for day', () {
     var timetable12 = Timetables.findByType(TimetableType.TWELFTH_30);
     var day = DateTime(2021, 7, 24);
