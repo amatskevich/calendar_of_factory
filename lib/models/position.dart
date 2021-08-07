@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 
 class Position {
+  final int id;
+  final int timetableId;
   final String name;
   final String sign;
   final Color color;
   final double workHours;
   final String description;
+  final int order;
 
   Position({
+    required this.id,
+    required this.timetableId,
     required this.name,
     required this.sign,
     required this.color,
     required this.workHours,
     required this.description,
+    required this.order,
   });
 }

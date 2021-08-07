@@ -29,7 +29,7 @@ class EditShiftScreen extends StatelessWidget {
             children: [
               DataRowWidget(value: data.timetableName),
               DataRowWidget(value: data.shift.name),
-              DataRowWidget(value: data.shift.type),
+              DataRowWidget(value: data.shift.description),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(

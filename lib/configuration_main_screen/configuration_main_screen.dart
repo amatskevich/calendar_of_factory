@@ -39,12 +39,12 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
     if(replace) {
       Provider.of<UserInfo>(context, listen: false).replaceSingleTimetableShift(
           timetableType: _selectedTimesheet!.type,
-          timetableName: _selectedTimesheet!.description,
+          timetableName: _selectedTimesheet!.name,
           shift: _selectedShift!);
     } else {
       Provider.of<UserInfo>(context, listen: false).addTimetableShift(
           timetableType: _selectedTimesheet!.type,
-          timetableName: _selectedTimesheet!.description,
+          timetableName: _selectedTimesheet!.name,
           shift: _selectedShift!);
     }
     Navigator.pop(context);
@@ -70,7 +70,8 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
             CustomDropdown<Timetable>(
               label: 'График',
               items: _timetables,
-              nameFunc: (Timetable t) => t.description,
+              // nameFunc: (Timetable t) => t.name,
+              nameFunc: (Timetable t) => '${t.name} (${t.timetableNumber})',
               func: _selectTimesheet,
             ),
             CustomDropdown<Shift>(
