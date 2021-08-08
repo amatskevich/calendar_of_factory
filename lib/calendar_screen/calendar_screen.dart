@@ -1,6 +1,12 @@
+import 'package:calendaroffactory/calendar_screen/calendar_info_widget.dart';
+import 'package:calendaroffactory/providers/selected_date.dart';
 import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:calendaroffactory/widgets/main_drawer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'week_day_names_widget.dart';
 
 class CalendarScreen extends StatelessWidget {
 
@@ -9,6 +15,7 @@ class CalendarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final data = ModalRoute.of(context)!.settings.arguments as TimetableShift;
+    var date = Provider.of<SelectedDate>(context, listen: true).selectedDate;
     return Scaffold(
       appBar: AppBar(
         title: Text('Календарь'),
@@ -16,7 +23,8 @@ class CalendarScreen extends StatelessWidget {
       drawer: MainDrawer(),
       body: ListView(
         children: [
-          Text(data.shift.name),
+          CalendarInfo(date, data.shift.name),
+          WeekDayNames(),
         ],
       ),
     );
