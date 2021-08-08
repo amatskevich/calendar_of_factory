@@ -96,4 +96,55 @@ void main() {
       expect(resultPosition.name, '1-й ДЕНЬ');
     });
   });
+
+  test('Test month', () {
+    var timetable8 = Timetables.findByType(TimetableType.EIGHT_4);
+    var day = DateTime(2021, 8, 25);
+    var shift = timetable8.shifts.firstWhere((element) => element.defaultName == 'Б');
+
+    var result = CalendarEngine.calculatePositionsForMonth(day: day, shift: shift);
+    var index = 0;
+    expect(result[index++], null);
+    expect(result[index++], null);
+    expect(result[index++], null);
+    expect(result[index++], null);
+    expect(result[index++], null);
+    expect(result[index++], null);
+    expect(result[index++]!.name, '2-я НОЧЬ');
+    expect(result[index++]!.name, 'ОТСЫПНОЙ');
+    expect(result[index++]!.name, 'ВЫХОДНОЙ');
+    expect(result[index++]!.name, 'ВЫХОДНОЙ');
+    expect(result[index++]!.name, '1-я С 4-х');
+    expect(result[index++]!.name, '2-я С 4-х');
+    expect(result[index++]!.name, 'ВЫХОДНОЙ');
+    expect(result[index++]!.name, '1-я С УТРА');
+    expect(result[index++]!.name, '2-я С УТРА');
+    expect(result[index++]!.name, '1-я НОЧЬ');
+    expect(result[index++]!.name, '2-я НОЧЬ');
+    expect(result[index++]!.name, 'ОТСЫПНОЙ');
+    expect(result[index++]!.name, 'ВЫХОДНОЙ');
+    expect(result[index++]!.name, 'ВЫХОДНОЙ');
+    expect(result[index++]!.name, '1-я С 4-х');
+    expect(result[index++]!.name, '2-я С 4-х');
+    expect(result[index++]!.name, 'ВЫХОДНОЙ');
+    expect(result[index++]!.name, '1-я С УТРА');
+    expect(result[index++]!.name, '2-я С УТРА');
+    expect(result[index++]!.name, '1-я НОЧЬ');
+    expect(result[index++]!.name, '2-я НОЧЬ');
+    expect(result[index++]!.name, 'ОТСЫПНОЙ');
+    expect(result[index++]!.name, 'ВЫХОДНОЙ');
+    expect(result[index++]!.name, 'ВЫХОДНОЙ');
+    expect(result[index++]!.name, '1-я С 4-х');
+    expect(result[index++]!.name, '2-я С 4-х');
+    expect(result[index++]!.name, 'ВЫХОДНОЙ');
+    expect(result[index++]!.name, '1-я С УТРА');
+    expect(result[index++]!.name, '2-я С УТРА');
+    expect(result[index++]!.name, '1-я НОЧЬ');
+    expect(result[index++]!.name, '2-я НОЧЬ');
+    expect(result[index++], null);
+    expect(result[index++], null);
+    expect(result[index++], null);
+    expect(result[index++], null);
+    expect(result[index], null);
+  });
 }

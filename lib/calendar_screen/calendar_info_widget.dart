@@ -22,7 +22,7 @@ class CalendarInfo extends StatelessWidget {
             ),
           ),
           Text(
-            'Смена: ${shiftName}',
+            'Смена: $shiftName',
             textAlign: TextAlign.right,
             style: TextStyle(
               fontSize: 25,
