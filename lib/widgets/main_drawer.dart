@@ -1,6 +1,6 @@
 import 'package:calendaroffactory/configuration_shifts_data/configuration_shifts_data_screen.dart';
 import 'package:calendaroffactory/screens/about_screen.dart';
-import 'package:calendaroffactory/screens/calendar_screen.dart';
+import 'package:calendaroffactory/calendar_screen/calendar_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {

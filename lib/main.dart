@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'edit_shift_screen/edit_shift_screen.dart';
 import 'providers/timetables.dart';
 import 'screens/about_screen.dart';
-import 'screens/calendar_screen.dart';
+import 'calendar_screen/calendar_screen.dart';
 import 'main_screen/main_screen.dart';
 
 void main() => runApp(MyApp());
