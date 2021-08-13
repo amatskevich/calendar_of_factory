@@ -1,6 +1,7 @@
 import 'package:calendaroffactory/calendar_engine.dart';
 import 'package:calendaroffactory/calendar_screen/calendar_info_widget.dart';
 import 'package:calendaroffactory/calendar_screen/month_grid_widget.dart';
+import 'package:calendaroffactory/calendar_screen/work_hours_widget.dart';
 import 'package:calendaroffactory/providers/salary_days_provider.dart';
 import 'package:calendaroffactory/providers/selected_date.dart';
 import 'package:calendaroffactory/providers/user_info.dart';
@@ -12,7 +13,6 @@ import 'package:provider/provider.dart';
 import 'week_day_names_widget.dart';
 
 class CalendarScreen extends StatelessWidget {
-
   static const routeName = '/calendar';
 
   @override
@@ -30,6 +30,11 @@ class CalendarScreen extends StatelessWidget {
           CalendarInfo(date, data.shift.name),
           WeekDayNames(),
           MonthGrid(positions, _calculateTodayDay(date), SalaryDaysProvider.getSalaryDays(date)),
+          WorkHours(
+            timetableNumber: data.timetableNumber,
+            positions: positions,
+            date: date,
+          ),
         ],
       ),
     );

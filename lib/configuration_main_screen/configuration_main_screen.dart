@@ -38,10 +38,18 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
   void _save(bool replace) {
     if (replace) {
       Provider.of<UserInfo>(context, listen: false).replaceSingleTimetableShift(
-          timetableType: _selectedTimesheet!.type, timetableName: _selectedTimesheet!.name, shift: _selectedShift!);
+        timetableType: _selectedTimesheet!.type,
+        timetableName: _selectedTimesheet!.name,
+        timetableNumber: _selectedTimesheet!.timetableNumber,
+        shift: _selectedShift!,
+      );
     } else {
       Provider.of<UserInfo>(context, listen: false).addTimetableShift(
-          timetableType: _selectedTimesheet!.type, timetableName: _selectedTimesheet!.name, shift: _selectedShift!);
+        timetableType: _selectedTimesheet!.type,
+        timetableName: _selectedTimesheet!.name,
+        timetableNumber: _selectedTimesheet!.timetableNumber,
+        shift: _selectedShift!,
+      );
     }
     Navigator.pop(context);
   }

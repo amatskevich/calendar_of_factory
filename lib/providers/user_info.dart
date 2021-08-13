@@ -28,18 +28,30 @@ class UserInfo with ChangeNotifier {
   void replaceSingleTimetableShift({
     required TimetableType timetableType,
     required String timetableName,
+    required String timetableNumber,
     required Shift shift,
   }) {
     _data.clear();
-    addTimetableShift(timetableType: timetableType, timetableName: timetableName, shift: shift);
+    addTimetableShift(
+      timetableType: timetableType,
+      timetableName: timetableName,
+      timetableNumber: timetableNumber,
+      shift: shift,
+    );
   }
 
   void addTimetableShift({
     required TimetableType timetableType,
     required String timetableName,
+    required String timetableNumber,
     required Shift shift,
   }) {
-    var ts = TimetableShift(timetableType: timetableType, timetableName: timetableName, shift: shift,);
+    var ts = TimetableShift(
+      timetableType: timetableType,
+      timetableName: timetableName,
+      timetableNumber: timetableNumber,
+      shift: shift,
+    );
     if (_data.contains(ts)) {
       return;
     }
@@ -51,9 +63,15 @@ class UserInfo with ChangeNotifier {
 class TimetableShift {
   final TimetableType timetableType;
   final String timetableName;
+  final String timetableNumber;
   final Shift shift;
 
-  TimetableShift({required this.timetableType, required this.timetableName, required this.shift,});
+  TimetableShift({
+    required this.timetableType,
+    required this.timetableName,
+    required this.timetableNumber,
+    required this.shift,
+  });
 
   @override
   bool operator ==(Object other) =>
@@ -62,8 +80,9 @@ class TimetableShift {
           runtimeType == other.runtimeType &&
           timetableType == other.timetableType &&
           timetableName == other.timetableName &&
+          timetableNumber == other.timetableNumber &&
           shift == other.shift;
 
   @override
-  int get hashCode => timetableType.hashCode ^ timetableName.hashCode ^ shift.hashCode;
+  int get hashCode => timetableType.hashCode ^ timetableName.hashCode ^ timetableNumber.hashCode ^ shift.hashCode;
 }
