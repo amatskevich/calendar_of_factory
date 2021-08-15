@@ -66,7 +66,6 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
             CustomDropdown<Timetable>(
               label: 'График',
               items: _timetables,
-              // nameFunc: (Timetable t) => t.name,
               nameFunc: (Timetable t) => '${t.name} (${t.timetableNumber})',
               func: _selectTimesheet,
             ),

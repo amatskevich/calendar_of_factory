@@ -1,5 +1,4 @@
 import 'package:calendaroffactory/configuration_main_screen/configuration_main_screen.dart';
-import 'package:calendaroffactory/configuration_shifts_data/configuration_shifts_data_screen.dart';
 import 'package:calendaroffactory/providers/selected_date.dart';
 import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'about_screen/about_screen.dart';
 import 'calendar_screen/calendar_screen.dart';
+import 'configuration_screen/configuration_screen.dart';
 import 'edit_shift_screen/edit_shift_screen.dart';
 import 'main_screen/main_screen.dart';
 import 'providers/timetables.dart';
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => MainScreen(),
           CalendarScreen.routeName: (_) => CalendarScreen(),
           ConfigurationMainScreen.routeName: (_) => ConfigurationMainScreen(),
-          ConfigurationShiftsDataScreen.routeName: (_) => ConfigurationShiftsDataScreen(),
+          ConfigurationScreen.routeName: (_) => ConfigurationScreen(),
           AboutScreen.routeName: (_) => AboutScreen(),
           EditShiftScreen.routeName: (_) => EditShiftScreen(),
         },

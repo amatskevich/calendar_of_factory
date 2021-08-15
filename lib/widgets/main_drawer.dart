@@ -1,5 +1,5 @@
 import 'package:calendaroffactory/about_screen/about_screen.dart';
-import 'package:calendaroffactory/configuration_shifts_data/configuration_shifts_data_screen.dart';
+import 'package:calendaroffactory/configuration_screen/configuration_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -42,7 +42,7 @@ class MainDrawer extends StatelessWidget {
           buildListTitle(
             'Настройки',
             Icons.settings,
-            () => Navigator.of(context).pushNamed(ConfigurationShiftsDataScreen.routeName),
+            () => Navigator.of(context).pushNamed(ConfigurationScreen.routeName),
           ),
           buildListTitle(
             'Справка',
