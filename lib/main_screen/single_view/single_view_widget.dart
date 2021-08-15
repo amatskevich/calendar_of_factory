@@ -13,6 +13,15 @@ class SingleViewWidget extends StatelessWidget {
     return Column(
       children: [
         Info(),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: const Divider(
+            height: 5,
+            thickness: 1,
+            indent: 20,
+            endIndent: 20,
+          ),
+        ),
         ListView.builder(
           itemBuilder: (ctx, index) {
             return Consumer<SelectedDate>(builder: (context, cart, child) {
