@@ -1,5 +1,5 @@
 import 'package:calendaroffactory/calendar_screen/calendar_screen.dart';
-import 'package:calendaroffactory/configuration_main_screen/configuration_main_screen.dart';
+import 'package:calendaroffactory/edit_shift_screen/edit_shift_screen.dart';
 import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,8 +27,8 @@ class Info extends StatelessWidget {
                 ),
               ),
               IconButton(
-                onPressed: () => Navigator.of(context).pushNamed(ConfigurationMainScreen.routeName, arguments: true),
-                icon: Icon(Icons.edit),
+                onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: cart.data.first),
+                icon: Icon(Icons.info_outline),
               ),
             ],
           ),

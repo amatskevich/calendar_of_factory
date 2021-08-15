@@ -18,26 +18,8 @@ class UserInfo with ChangeNotifier {
   List<TimetableShift> get data => [..._data];
 
   void removeTimetableShift(TimetableShift shift) {
-    print(shift);
-    var remove = _data.remove(shift);
-    print(remove);
-    print(_data);
+    _data.remove(shift);
     notifyListeners();
-  }
-
-  void replaceSingleTimetableShift({
-    required TimetableType timetableType,
-    required String timetableName,
-    required String timetableNumber,
-    required Shift shift,
-  }) {
-    _data.clear();
-    addTimetableShift(
-      timetableType: timetableType,
-      timetableName: timetableName,
-      timetableNumber: timetableNumber,
-      shift: shift,
-    );
   }
 
   void addTimetableShift({

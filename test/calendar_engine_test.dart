@@ -71,7 +71,6 @@ void main() {
 
     test('Shift D', () {
       var shift = timetable8.shifts.firstWhere((element) => element.defaultName == 'Д');
-      print(shift);
       var resultPosition = CalendarEngine.calculatePositionForDay(day: day, shift: shift);
 
       expect(resultPosition.name, '1-я НОЧЬ');

@@ -43,7 +43,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () => Navigator.of(context).pushNamed(ConfigurationMainScreen.routeName, arguments: false),
+        onPressed: () => Navigator.of(context).pushNamed(ConfigurationMainScreen.routeName),
       ),
     );
   }
