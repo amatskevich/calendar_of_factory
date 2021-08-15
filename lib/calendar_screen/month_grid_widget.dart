@@ -12,7 +12,6 @@ class MonthGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var dayNumber = 1;
-    DateTime.now();
     return Container(
       child: GridView.builder(
           scrollDirection: Axis.vertical,
