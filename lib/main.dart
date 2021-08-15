@@ -5,11 +5,11 @@ import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'edit_shift_screen/edit_shift_screen.dart';
-import 'providers/timetables.dart';
-import 'screens/about_screen.dart';
+import 'about_screen/about_screen.dart';
 import 'calendar_screen/calendar_screen.dart';
+import 'edit_shift_screen/edit_shift_screen.dart';
 import 'main_screen/main_screen.dart';
+import 'providers/timetables.dart';
 
 void main() => runApp(MyApp());
 

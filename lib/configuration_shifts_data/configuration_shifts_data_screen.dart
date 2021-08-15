@@ -7,7 +7,7 @@ class ConfigurationShiftsDataScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Настройка информации о сменах'),
+        title: Text('Настройки'),
       ),
       body: ListView(),
     );

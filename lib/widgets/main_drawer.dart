@@ -1,6 +1,5 @@
+import 'package:calendaroffactory/about_screen/about_screen.dart';
 import 'package:calendaroffactory/configuration_shifts_data/configuration_shifts_data_screen.dart';
-import 'package:calendaroffactory/screens/about_screen.dart';
-import 'package:calendaroffactory/calendar_screen/calendar_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -39,11 +38,6 @@ class MainDrawer extends StatelessWidget {
             'Главная',
             Icons.home,
             () => Navigator.of(context).pushReplacementNamed('/'),
-          ),
-          buildListTitle(
-            'Календарь',
-            Icons.calendar_today,
-            () => Navigator.of(context).pushReplacementNamed(CalendarScreen.routeName),
           ),
           buildListTitle(
             'Настройки',

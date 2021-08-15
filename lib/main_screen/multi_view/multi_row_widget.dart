@@ -38,7 +38,7 @@ class MultiRowWidget extends StatelessWidget {
                     style: TextStyle(fontSize: 15),
                   ),
                   Text(
-                    position.description,
+                    position.name,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20),
                   ),
