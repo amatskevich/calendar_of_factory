@@ -58,8 +58,10 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
         title: const Text('Добавление смены'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomDropdown<Timetable>(
               label: 'График',
