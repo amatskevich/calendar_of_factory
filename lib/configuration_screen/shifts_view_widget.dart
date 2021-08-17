@@ -1,6 +1,7 @@
 import 'package:calendaroffactory/edit_shift_screen/edit_shift_screen.dart';
 import 'package:calendaroffactory/models/timetable.dart';
 import 'package:calendaroffactory/providers/timetables.dart';
+import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -37,12 +38,12 @@ class _ShiftsViewState extends State<ShiftsView> {
     return ExpansionPanel(
       headerBuilder: (ctx, isOpen) {
         return Center(
-            child: Text(
-              timetable.name,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 25),
-            ),
-          );
+          child: Text(
+            timetable.name,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 25),
+          ),
+        );
       },
       body: ListView.separated(
         padding: const EdgeInsets.all(8),
@@ -58,7 +59,12 @@ class _ShiftsViewState extends State<ShiftsView> {
               IconButton(
                 onPressed: () => Navigator.of(context).pushNamed(
                   EditShiftScreen.routeName,
-                  arguments: timetable.shifts[i],
+                  arguments: TimetableShift(
+                    timetableType: timetable.type,
+                    timetableName: timetable.name,
+                    timetableNumber: timetable.timetableNumber,
+                    shift: timetable.shifts[i],
+                  ),
                 ),
                 icon: Icon(Icons.info_outline),
                 iconSize: 30,
@@ -70,7 +76,9 @@ class _ShiftsViewState extends State<ShiftsView> {
         shrinkWrap: true,
         itemCount: timetable.shifts.length,
         separatorBuilder: (context, index) {
-          return Divider(color: Colors.black,);
+          return Divider(
+            color: Colors.black,
+          );
         },
       ),
       isExpanded: _isOpen[index],
