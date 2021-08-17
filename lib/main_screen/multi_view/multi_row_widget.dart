@@ -1,18 +1,19 @@
 import 'package:calendaroffactory/calendar_engine.dart';
 import 'package:calendaroffactory/calendar_screen/calendar_screen.dart';
 import 'package:calendaroffactory/edit_shift_screen/edit_shift_screen.dart';
-import 'package:calendaroffactory/providers/user_info.dart';
+import 'package:calendaroffactory/models/shift.dart';
+
 import 'package:flutter/material.dart';
 
 class MultiRowWidget extends StatelessWidget {
-  final TimetableShift data;
+  final Shift shift;
   final DateTime selectedDate;
 
-  const MultiRowWidget(this.data, this.selectedDate, {Key? key}) : super(key: key);
+  const MultiRowWidget(this.shift, this.selectedDate, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var position = CalendarEngine.calculatePositionForDay(day: selectedDate, shift: data.shift);
+    var position = CalendarEngine.calculatePositionForDay(day: selectedDate, shift: shift);
     return Container(
       decoration: BoxDecoration(
         color: position.color,
@@ -29,11 +30,11 @@ class MultiRowWidget extends StatelessWidget {
         children: [
           Expanded(
             child: GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed(CalendarScreen.routeName, arguments: data),
+              onTap: () => Navigator.of(context).pushNamed(CalendarScreen.routeName, arguments: shift),
               child: Column(
                 children: [
                   Text(
-                    '${data.timetableName} - Смена: ${data.shift.name}',
+                    '${shift.timetable.name} - Смена: ${shift.name}',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 15),
                   ),
@@ -47,7 +48,7 @@ class MultiRowWidget extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: data),
+            onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shift),
             icon: Icon(Icons.info_outline),
           ),
         ],

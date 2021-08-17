@@ -1,6 +1,5 @@
 import 'package:calendaroffactory/configuration_main_screen/configuration_main_screen.dart';
 import 'package:calendaroffactory/providers/selected_date.dart';
-import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +18,6 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: SelectedDate()),
-        ChangeNotifierProvider.value(value: UserInfo()),
         ChangeNotifierProvider.value(value: Timetables()),
       ],
       child: MaterialApp(
@@ -38,7 +36,6 @@ class MyApp extends StatelessWidget {
             bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
           ),
         ),
-//      home: SingleMainScreen(),
         routes: {
           '/': (context) => MainScreen(),
           CalendarScreen.routeName: (_) => CalendarScreen(),

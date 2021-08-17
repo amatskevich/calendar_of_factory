@@ -1,7 +1,6 @@
 import 'package:calendaroffactory/models/shift.dart';
 import 'package:calendaroffactory/models/timetable.dart';
 import 'package:calendaroffactory/providers/timetables.dart';
-import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:calendaroffactory/widgets/custom_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +24,7 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
     setState(() {
       _selectedShift = null;
       _selectedTimesheet = selectedTimesheet;
-      _shifts = selectedTimesheet.shifts;
+      _shifts = Provider.of<Timetables>(context, listen: false).getShiftsByTimetableType(selectedTimesheet.type);
     });
   }
 
@@ -36,12 +35,7 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
   }
 
   void _save() {
-    Provider.of<UserInfo>(context, listen: false).addTimetableShift(
-      timetableType: _selectedTimesheet!.type,
-      timetableName: _selectedTimesheet!.name,
-      timetableNumber: _selectedTimesheet!.timetableNumber,
-      shift: _selectedShift!,
-    );
+    Provider.of<Timetables>(context, listen: false).showShiftOnMainScreen(_selectedShift!.id);
     Navigator.pop(context);
   }
 

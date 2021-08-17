@@ -1,7 +1,6 @@
 import 'package:calendaroffactory/edit_shift_screen/edit_shift_screen.dart';
 import 'package:calendaroffactory/models/timetable.dart';
 import 'package:calendaroffactory/providers/timetables.dart';
-import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,6 +34,7 @@ class _ShiftsViewState extends State<ShiftsView> {
   }
 
   ExpansionPanel _buildExpansionPanel(Timetable timetable, int index) {
+    var shifts = Provider.of<Timetables>(context, listen: true).getShiftsByTimetableType(timetable.type);
     return ExpansionPanel(
       headerBuilder: (ctx, isOpen) {
         return Center(
@@ -52,20 +52,12 @@ class _ShiftsViewState extends State<ShiftsView> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Смена ${timetable.shifts[i].name}',
+                'Смена ${shifts[i].name}',
                 style: TextStyle(fontSize: 25),
                 textAlign: TextAlign.center,
               ),
               IconButton(
-                onPressed: () => Navigator.of(context).pushNamed(
-                  EditShiftScreen.routeName,
-                  arguments: TimetableShift(
-                    timetableType: timetable.type,
-                    timetableName: timetable.name,
-                    timetableNumber: timetable.timetableNumber,
-                    shift: timetable.shifts[i],
-                  ),
-                ),
+                onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shifts[i]),
                 icon: Icon(Icons.info_outline),
                 iconSize: 30,
               ),
@@ -74,7 +66,7 @@ class _ShiftsViewState extends State<ShiftsView> {
         },
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: timetable.shifts.length,
+        itemCount: shifts.length,
         separatorBuilder: (context, index) {
           return Divider(
             color: Colors.black,

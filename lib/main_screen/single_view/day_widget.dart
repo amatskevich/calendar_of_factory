@@ -1,20 +1,19 @@
 import 'package:calendaroffactory/calendar_engine.dart';
 import 'package:calendaroffactory/models/position.dart';
-import 'package:calendaroffactory/providers/user_info.dart';
+import 'package:calendaroffactory/models/shift.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 
 class DayItem extends StatelessWidget {
   final int index;
   final DateTime selectedDate;
+  final Shift shift;
 
-  const DayItem({Key? key, required this.index, required this.selectedDate}) : super(key: key);
+  const DayItem({Key? key, required this.index, required this.selectedDate, required this.shift}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var date = selectedDate.add(Duration(days: index));
-    var shift = Provider.of<UserInfo>(context, listen: false).shift!;
     Position position = CalendarEngine.calculatePositionForDay(day: date, shift: shift);
     return Container(
       decoration: BoxDecoration(

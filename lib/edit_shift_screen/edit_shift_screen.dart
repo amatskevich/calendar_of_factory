@@ -1,6 +1,5 @@
-import 'package:calendaroffactory/providers/user_info.dart';
+import 'package:calendaroffactory/models/shift.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'data_row_widget.dart';
 
@@ -22,13 +21,12 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
 
   var _isInit = true;
 
-  TimetableShift? _timetableShift;
-
+  Shift? _shift;
 
   @override
   void didChangeDependencies() {
     if (_isInit) {
-      _timetableShift = ModalRoute.of(context)!.settings.arguments as TimetableShift;
+      _shift = ModalRoute.of(context)!.settings.arguments as Shift;
     }
     _isInit = false;
     super.didChangeDependencies();
@@ -38,11 +36,6 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
   void dispose() {
     _descriptionFocusNode.dispose();
     super.dispose();
-  }
-
-  void _removeFromList(BuildContext context, TimetableShift data) {
-    Provider.of<UserInfo>(context, listen: false).removeTimetableShift(data);
-    Navigator.pop(context);
   }
 
   void _saveForm() {
@@ -67,7 +60,7 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: <Widget>[
-            DataRowWidget(value: _timetableShift!.timetableName),
+            DataRowWidget(value: _shift!.timetable.name),
             Form(
               key: _form,
               child: Column(
@@ -75,15 +68,17 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Название смены',
-                      hintText: _timetableShift!.shift.defaultName,
+                      hintText: _shift!.defaultName,
                     ),
-                    initialValue: _timetableShift!.shift.name,
+                    initialValue: _shift!.name,
                     maxLength: 30,
                     textInputAction: TextInputAction.next,
                     onFieldSubmitted: (_) {
                       FocusScope.of(context).requestFocus(_descriptionFocusNode);
                     },
-                    onSaved: (value) {_name = value != null && value.isNotEmpty ? value : _timetableShift!.shift.defaultName;},
+                    onSaved: (value) {
+                      _name = value != null && value.isNotEmpty ? value : _shift!.defaultName;
+                    },
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -91,10 +86,12 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
                     ),
                     maxLines: 5,
                     maxLength: 300,
-                    initialValue: _timetableShift!.shift.description,
+                    initialValue: _shift!.description,
                     keyboardType: TextInputType.multiline,
                     focusNode: _descriptionFocusNode,
-                    onSaved: (value) {_description = value != null ? value : '';},
+                    onSaved: (value) {
+                      _description = value != null ? value : '';
+                    },
                   ),
                   // DataRowWidget(value: data.shift.name),
                   // DataRowWidget(value: data.shift.description),
@@ -107,7 +104,7 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ElevatedButton(
-                    onPressed: () => _removeFromList(context, _timetableShift!),
+                    onPressed: () => print(_shift!),
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red),
                       foregroundColor: MaterialStateProperty.all(Colors.white),

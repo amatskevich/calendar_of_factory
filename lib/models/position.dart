@@ -11,7 +11,7 @@ class Position {
   final String description;
   final int order;
 
-  Position({
+  const Position({
     required this.id,
     required this.timetableId,
     required this.name,

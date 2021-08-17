@@ -1,5 +1,5 @@
+import 'package:calendaroffactory/models/shift.dart';
 import 'package:calendaroffactory/providers/salary_days_provider.dart';
-import 'package:calendaroffactory/providers/user_info.dart';
 import 'package:flutter/material.dart';
 
 import '../calendar_engine.dart';
@@ -9,10 +9,10 @@ import 'week_day_names_widget.dart';
 import 'work_hours_widget.dart';
 
 class CalendarBody extends StatefulWidget {
-  final TimetableShift data;
+  final Shift shift;
   final DateTime initialDate;
 
-  const CalendarBody(this.data, this.initialDate, {Key? key}) : super(key: key);
+  const CalendarBody(this.shift, this.initialDate, {Key? key}) : super(key: key);
 
   @override
   _CalendarBodyState createState() => _CalendarBodyState();
@@ -29,10 +29,10 @@ class _CalendarBodyState extends State<CalendarBody> {
 
   @override
   Widget build(BuildContext context) {
-    var positions = CalendarEngine.calculatePositionsForMonth(day: _date, shift: widget.data.shift);
+    var positions = CalendarEngine.calculatePositionsForMonth(day: _date, shift: widget.shift);
     return ListView(
       children: [
-        CalendarInfo(_date, widget.data.shift.name),
+        CalendarInfo(_date, widget.shift.name),
         const WeekDayNames(),
         GestureDetector(
           onHorizontalDragEnd: _onSwipe,
@@ -43,7 +43,7 @@ class _CalendarBodyState extends State<CalendarBody> {
           ),
         ),
         WorkHours(
-          timetableNumber: widget.data.timetableNumber,
+          timetableNumber: widget.shift.timetable.timetableNumber,
           positions: positions,
           date: _date,
         ),
