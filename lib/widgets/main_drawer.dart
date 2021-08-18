@@ -42,12 +42,18 @@ class MainDrawer extends StatelessWidget {
           buildListTitle(
             'Настройки',
             Icons.settings,
-            () => Navigator.of(context).pushNamed(ConfigurationScreen.routeName),
+            () {
+              Navigator.pop(context);
+              Navigator.of(context).pushNamed(ConfigurationScreen.routeName);
+            },
           ),
           buildListTitle(
             'Справка',
             Icons.info,
-            () => Navigator.of(context).pushNamed(AboutScreen.routeName),
+            () {
+              Navigator.pop(context);
+              Navigator.of(context).pushNamed(AboutScreen.routeName);
+            },
           ),
         ],
       ),
