@@ -1,4 +1,4 @@
-import 'package:calendaroffactory/edit_shift_screen/edit_shift_screen.dart';
+import 'package:calendaroffactory/configuration_screen/shift_row_widget.dart';
 import 'package:calendaroffactory/models/timetable.dart';
 import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:flutter/material.dart';
@@ -44,40 +44,8 @@ class _ShiftsViewState extends State<ShiftsView> {
           ),
         );
       },
-      body: ListView.separated(
-        padding: const EdgeInsets.all(8),
-        itemBuilder: (ctx, i) {
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Flexible(
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Text(
-                    'Смена ${shifts[i].name}',
-                    style: TextStyle(fontSize: 25),
-                    overflow: TextOverflow.clip,
-                    softWrap: false,
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ),
-              IconButton(
-                onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shifts[i]),
-                icon: Icon(Icons.info_outline),
-                iconSize: 30,
-              ),
-            ],
-          );
-        },
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemCount: shifts.length,
-        separatorBuilder: (context, index) {
-          return Divider(
-            color: Colors.black,
-          );
-        },
+      body: Column(
+        children: shifts.map((shift) => ShiftRow(shift)).toList(),
       ),
       isExpanded: _isOpen[index],
       canTapOnHeader: true,

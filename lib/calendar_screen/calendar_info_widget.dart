@@ -28,7 +28,7 @@ class CalendarInfo extends StatelessWidget {
               child: Text(
                 'Смена: $shiftName',
                 textAlign: TextAlign.right,
-                overflow: TextOverflow.clip,
+                overflow: TextOverflow.fade,
                 softWrap: false,
                 style: TextStyle(
                   fontSize: 22,
