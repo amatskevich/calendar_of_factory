@@ -18,6 +18,7 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
 
   var _name = '';
   var _description = '';
+  var _showOnMainScreen = false;
 
   var _isInit = true;
 
@@ -27,6 +28,7 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
   void didChangeDependencies() {
     if (_isInit) {
       _shift = ModalRoute.of(context)!.settings.arguments as Shift;
+      _showOnMainScreen = _shift!.showOnMainScreen;
     }
     _isInit = false;
     super.didChangeDependencies();
@@ -65,6 +67,15 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
               key: _form,
               child: Column(
                 children: [
+                  SwitchListTile(
+                    title: const Text('Отображать на главной'),
+                    value: _showOnMainScreen,
+                    onChanged: (value) {
+                      setState(() {
+                        _showOnMainScreen = value;
+                      });
+                    },
+                  ),
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Название смены',
@@ -93,30 +104,6 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
                       _description = value != null ? value : '';
                     },
                   ),
-                  // DataRowWidget(value: data.shift.name),
-                  // DataRowWidget(value: data.shift.description),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ElevatedButton(
-                    onPressed: () => print(_shift!),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.red),
-                      foregroundColor: MaterialStateProperty.all(Colors.white),
-                    ),
-                    child: Text(
-                      'Удалить из списка',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                  // ElevatedButton(
-                  //     onPressed: () => Navigator.pop(context),
-                  //     child: Text('Вернуться', style: TextStyle(fontSize: 20))),
                 ],
               ),
             ),
