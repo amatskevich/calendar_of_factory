@@ -1,5 +1,7 @@
 import 'package:calendaroffactory/models/shift.dart';
+import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'data_row_widget.dart';
 
@@ -42,8 +44,11 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
 
   void _saveForm() {
     _form.currentState?.save();
-    print(_name);
-    print(_description);
+    _shift!.name = _name;
+    _shift!.description = _description;
+    _shift!.showOnMainScreen = _showOnMainScreen;
+    Provider.of<Timetables>(context, listen: false).updateShift(_shift!);
+    Navigator.pop(context);
   }
 
   @override
