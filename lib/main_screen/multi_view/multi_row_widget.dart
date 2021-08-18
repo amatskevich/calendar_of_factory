@@ -14,23 +14,23 @@ class MultiRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var position = CalendarEngine.calculatePositionForDay(day: selectedDate, shift: shift);
-    return Container(
-      decoration: BoxDecoration(
-        color: position.color,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(color: Colors.black),
-        ],
-      ),
-      margin: EdgeInsets.all(5),
-      padding: EdgeInsets.all(5),
-      width: double.infinity,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Expanded(
-            child: GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed(CalendarScreen.routeName, arguments: shift),
+    return GestureDetector(
+      onTap: () => Navigator.of(context).pushNamed(CalendarScreen.routeName, arguments: shift),
+      child: Container(
+        decoration: BoxDecoration(
+          color: position.color,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(color: Colors.black),
+          ],
+        ),
+        margin: EdgeInsets.all(5),
+        padding: EdgeInsets.all(5),
+        width: double.infinity,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Expanded(
               child: Column(
                 children: [
                   Text(
@@ -46,12 +46,12 @@ class MultiRowWidget extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-          IconButton(
-            onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shift),
-            icon: Icon(Icons.info_outline),
-          ),
-        ],
+            IconButton(
+              onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shift),
+              icon: Icon(Icons.info_outline),
+            ),
+          ],
+        ),
       ),
     );
   }

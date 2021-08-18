@@ -11,20 +11,20 @@ class Info extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.all(9.5),
-      padding: EdgeInsets.symmetric(vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.black12,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Expanded(
-            child: GestureDetector(
-              onTap: () => Navigator.of(context).pushNamed(CalendarScreen.routeName, arguments: shift),
+    return GestureDetector(
+      onTap: () => Navigator.of(context).pushNamed(CalendarScreen.routeName, arguments: shift),
+      child: Container(
+        width: double.infinity,
+        margin: EdgeInsets.all(9.5),
+        padding: EdgeInsets.symmetric(vertical: 8),
+        decoration: BoxDecoration(
+          color: Colors.black12,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Expanded(
               child: Column(
                 children: [
                   Text(
@@ -40,13 +40,13 @@ class Info extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-          IconButton(
-            onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shift),
-            icon: Icon(Icons.info_outline),
-            iconSize: 30,
-          ),
-        ],
+            IconButton(
+              onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shift),
+              icon: Icon(Icons.info_outline),
+              iconSize: 30,
+            ),
+          ],
+        ),
       ),
     );
   }
