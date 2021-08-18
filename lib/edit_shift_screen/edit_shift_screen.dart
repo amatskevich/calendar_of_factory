@@ -3,8 +3,6 @@ import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'data_row_widget.dart';
-
 class EditShiftScreen extends StatefulWidget {
   static const routeName = '/edit_shift';
 
@@ -67,47 +65,80 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: <Widget>[
-            DataRowWidget(value: _shift!.timetable.name),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                '${_shift!.timetable.name} (${_shift!.timetable.timetableNumber})',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 25),
+              ),
+            ),
+            const Divider(
+              height: 40,
+              thickness: 2,
+              indent: 5,
+              endIndent: 5,
+              color: Colors.blue,
+            ),
             Form(
               key: _form,
               child: Column(
                 children: [
-                  SwitchListTile(
-                    title: const Text('Отображать на главной'),
-                    value: _showOnMainScreen,
-                    onChanged: (value) {
-                      setState(() {
-                        _showOnMainScreen = value;
-                      });
-                    },
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Название смены',
-                      hintText: _shift!.defaultName,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: SwitchListTile(
+                      title: const Text(
+                        'Отображать на главной',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      value: _showOnMainScreen,
+                      onChanged: (value) {
+                        setState(() {
+                          _showOnMainScreen = value;
+                        });
+                      },
                     ),
-                    initialValue: _shift!.name,
-                    maxLength: 30,
-                    textInputAction: TextInputAction.next,
-                    onFieldSubmitted: (_) {
-                      FocusScope.of(context).requestFocus(_descriptionFocusNode);
-                    },
-                    onSaved: (value) {
-                      _name = value != null && value.isNotEmpty ? value : _shift!.defaultName;
-                    },
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Дополнительная информация',
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Название смены',
+                        hintText: _shift!.defaultName,
+                        labelStyle: const TextStyle(fontSize: 20),
+                        border: OutlineInputBorder(),
+                      ),
+                      style: const TextStyle(fontSize: 25),
+                      initialValue: _shift!.name,
+                      maxLength: 30,
+                      textInputAction: TextInputAction.next,
+                      onFieldSubmitted: (_) {
+                        FocusScope.of(context).requestFocus(_descriptionFocusNode);
+                      },
+                      onSaved: (value) {
+                        _name = value != null && value.isNotEmpty ? value : _shift!.defaultName;
+                      },
                     ),
-                    maxLines: 5,
-                    maxLength: 300,
-                    initialValue: _shift!.description,
-                    keyboardType: TextInputType.multiline,
-                    focusNode: _descriptionFocusNode,
-                    onSaved: (value) {
-                      _description = value != null ? value : '';
-                    },
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Дополнительная информация',
+                        labelStyle: const TextStyle(fontSize: 20),
+                        border: OutlineInputBorder(),
+                      ),
+                      style: const TextStyle(fontSize: 25),
+                      maxLines: 5,
+                      maxLength: 300,
+                      minLines: 1,
+                      initialValue: _shift!.description,
+                      keyboardType: TextInputType.multiline,
+                      focusNode: _descriptionFocusNode,
+                      onSaved: (value) {
+                        _description = value != null ? value : '';
+                      },
+                    ),
                   ),
                 ],
               ),
