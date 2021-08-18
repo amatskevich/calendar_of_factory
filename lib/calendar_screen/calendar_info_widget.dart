@@ -18,14 +18,22 @@ class CalendarInfo extends StatelessWidget {
             DateFormat('MMM yyyy', 'ru_RU').format(date),
             textAlign: TextAlign.left,
             style: TextStyle(
-              fontSize: 25,
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
             ),
           ),
-          Text(
-            'Смена: $shiftName',
-            textAlign: TextAlign.right,
-            style: TextStyle(
-              fontSize: 25,
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text(
+                'Смена: $shiftName',
+                textAlign: TextAlign.right,
+                overflow: TextOverflow.clip,
+                softWrap: false,
+                style: TextStyle(
+                  fontSize: 22,
+                ),
+              ),
             ),
           ),
         ],

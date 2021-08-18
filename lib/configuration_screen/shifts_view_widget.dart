@@ -1,7 +1,6 @@
 import 'package:calendaroffactory/edit_shift_screen/edit_shift_screen.dart';
 import 'package:calendaroffactory/models/timetable.dart';
 import 'package:calendaroffactory/providers/timetables.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -51,10 +50,17 @@ class _ShiftsViewState extends State<ShiftsView> {
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Смена ${shifts[i].name}',
-                style: TextStyle(fontSize: 25),
-                textAlign: TextAlign.center,
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Text(
+                    'Смена ${shifts[i].name}',
+                    style: TextStyle(fontSize: 25),
+                    overflow: TextOverflow.clip,
+                    softWrap: false,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
               ),
               IconButton(
                 onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shifts[i]),

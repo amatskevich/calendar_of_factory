@@ -2,7 +2,6 @@ import 'package:calendaroffactory/models/shift.dart';
 import 'package:calendaroffactory/models/timetable.dart';
 import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:calendaroffactory/widgets/custom_dropdown.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
