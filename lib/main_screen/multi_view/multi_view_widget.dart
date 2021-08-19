@@ -12,18 +12,14 @@ class MultiViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var selectedDate = Provider.of<SelectedDate>(context, listen: true).selectedDate;
-    return Column(
-      children: [
-        ListView.builder(
-          padding: const EdgeInsets.all(8),
-          itemBuilder: (ctx, index) {
-            return MultiRowWidget(shifts[index], selectedDate);
-          },
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: shifts.length,
-        ),
-      ],
+    return ListView.builder(
+      padding: const EdgeInsets.all(8),
+      itemBuilder: (ctx, index) {
+        return MultiRowWidget(shifts[index], selectedDate);
+      },
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      itemCount: shifts.length,
     );
   }
 }
