@@ -25,12 +25,12 @@ class SingleViewWidget extends StatelessWidget {
           ),
         ),
         ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
           itemBuilder: (ctx, index) {
             return Consumer<SelectedDate>(builder: (context, cart, child) {
               return DayItem(shift: shift, index: index, selectedDate: cart.selectedDate);
             });
           },
-          scrollDirection: Axis.vertical,
           shrinkWrap: true,
           itemCount: 4,
         ),

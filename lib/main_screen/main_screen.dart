@@ -30,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
         title: const Text('Смены Полимира+'),
       ),
       drawer: const MainDrawer(),
-      body: Column(
+      body: ListView(
         children: [
           DateInfo(),
           const Divider(
