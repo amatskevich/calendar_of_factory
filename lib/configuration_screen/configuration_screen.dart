@@ -1,5 +1,5 @@
 import 'package:calendaroffactory/configuration_screen/shifts_view_widget.dart';
-import 'package:calendaroffactory/widgets/custom_dropdown.dart';
+import 'package:calendaroffactory/configuration_screen/theme_dropdown_widget.dart';
 import 'package:flutter/material.dart';
 
 class ConfigurationScreen extends StatelessWidget {
@@ -15,12 +15,7 @@ class ConfigurationScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
-            CustomDropdown<String>(
-              label: 'Тема оформления',
-              items: ['Пахне чабор', 'Василки', 'Жыве'],
-              nameFunc: (String s) => s,
-              func: () {},
-            ),
+            ThemeDropdown(),
             Padding(
               padding: const EdgeInsets.only(bottom: 12.0),
               child: const Divider(

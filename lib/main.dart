@@ -9,6 +9,7 @@ import 'configuration_screen/configuration_screen.dart';
 import 'edit_shift_screen/edit_shift_screen.dart';
 import 'main_screen/main_screen.dart';
 import 'providers/timetables.dart';
+import 'providers/user_settings.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: SelectedDate()),
         ChangeNotifierProvider.value(value: Timetables()),
+        ChangeNotifierProvider.value(value: UserSettings()),
       ],
       child: MaterialApp(
         title: 'Смены Полимира',
