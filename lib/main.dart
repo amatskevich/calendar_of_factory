@@ -8,10 +8,15 @@ import 'calendar_screen/calendar_screen.dart';
 import 'configuration_screen/configuration_screen.dart';
 import 'edit_shift_screen/edit_shift_screen.dart';
 import 'main_screen/main_screen.dart';
+import 'persistent/database_service.dart';
 import 'providers/timetables.dart';
 import 'providers/user_settings.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  DatabaseService();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override

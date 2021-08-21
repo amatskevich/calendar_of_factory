@@ -2,6 +2,8 @@ import 'package:calendaroffactory/models/position.dart';
 import 'package:calendaroffactory/models/shift.dart';
 import 'package:calendaroffactory/models/timetable.dart';
 import 'package:calendaroffactory/models/timetable_type.dart';
+import 'package:calendaroffactory/persistent/custom_shift_data.dart';
+import 'package:calendaroffactory/persistent/database_service.dart';
 import 'package:flutter/material.dart';
 
 class Timetables with ChangeNotifier {
@@ -35,6 +37,26 @@ class Timetables with ChangeNotifier {
     timetableNumber: "График №15",
   );
 
+  final databaseService = DatabaseService();
+
+  Timetables() {
+    _loadShiftData();
+  }
+
+  void _loadShiftData() {
+    databaseService.getAllShiftDatas().then((datas) {
+      datas.forEach((data) {
+        var shift = _shifts.firstWhere((s) => s.id == data.id);
+        shift.name = data.name;
+        shift.description = data.description;
+        shift.showOnMainScreen = data.show;
+      });
+      if (datas.isNotEmpty) {
+        notifyListeners();
+      }
+    });
+  }
+
   List<Timetable> get timetables => [_timetableTwelfth30, _timetableEight4, _timetableDay15];
 
   List<Shift> get shifts => [..._shifts];
@@ -52,20 +74,48 @@ class Timetables with ChangeNotifier {
     original.name = shift.name;
     original.description = shift.description;
     original.showOnMainScreen = shift.showOnMainScreen;
+    databaseService.upsertShiftData(
+      CustomShiftData(
+        shift.id,
+        shift.name,
+        shift.description,
+        shift.showOnMainScreen,
+      ),
+    );
     notifyListeners();
   }
 
   void showShiftOnMainScreen(int shiftId) {
-    _shifts.where((element) => element.id == shiftId).forEach((element) => element.showOnMainScreen = true);
+    _shifts.where((element) => element.id == shiftId).forEach((shift) {
+      shift.showOnMainScreen = true;
+      databaseService.upsertShiftData(
+        CustomShiftData(
+          shift.id,
+          shift.name,
+          shift.description,
+          shift.showOnMainScreen,
+        ),
+      );
+    });
     notifyListeners();
   }
 
   void hideShiftOnMainScreen(int shiftId) {
-    _shifts.where((element) => element.id == shiftId).forEach((element) => element.showOnMainScreen = false);
+    _shifts.where((element) => element.id == shiftId).forEach((shift) {
+      shift.showOnMainScreen = false;
+      databaseService.upsertShiftData(
+        CustomShiftData(
+          shift.id,
+          shift.name,
+          shift.description,
+          shift.showOnMainScreen,
+        ),
+      );
+    });
     notifyListeners();
   }
 
-  static final List<Shift> _shifts = [
+  final List<Shift> _shifts = [
     Shift(
       id: 1,
       timetable: _timetableTwelfth30,
