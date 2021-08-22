@@ -9,9 +9,9 @@ class DateArrowButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Ink(
-        decoration: const ShapeDecoration(
-          color: Colors.lightBlue,
-          shape: CircleBorder(),
+        decoration: ShapeDecoration(
+          color: Theme.of(context).primaryColor,
+          shape: const CircleBorder(),
         ),
         child: IconButton(
           icon: Icon(iconData),

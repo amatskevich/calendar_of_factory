@@ -12,46 +12,41 @@ import 'persistent/database_service.dart';
 import 'providers/timetables.dart';
 import 'providers/user_settings.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DatabaseService();
-  runApp(MyApp());
+  var userTheme = await UserSettings.retrieveThemeFromPreferences();
+  runApp(MyApp(userTheme));
 }
 
 class MyApp extends StatelessWidget {
+  final String initialUserTheme;
+
+  MyApp(this.initialUserTheme);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: SelectedDate()),
         ChangeNotifierProvider.value(value: Timetables()),
-        ChangeNotifierProvider.value(value: UserSettings()),
+        ChangeNotifierProvider.value(value: UserSettings(initialUserTheme)),
       ],
-      child: MaterialApp(
-        title: 'Смены Полимира',
-        initialRoute: '/',
-        theme: ThemeData(
-          // brightness: Brightness.dark,
-          primaryColor: Colors.lightBlue[800],
-          accentColor: Colors.cyan[600],
-
-          fontFamily: 'Georgia',
-
-          textTheme: TextTheme(
-            headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-            headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-            bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
-          ),
-        ),
-        routes: {
-          '/': (context) => MainScreen(),
-          CalendarScreen.routeName: (_) => CalendarScreen(),
-          ConfigurationMainScreen.routeName: (_) => ConfigurationMainScreen(),
-          ConfigurationScreen.routeName: (_) => ConfigurationScreen(),
-          AboutScreen.routeName: (_) => AboutScreen(),
-          EditShiftScreen.routeName: (_) => EditShiftScreen(),
-        },
-      ),
+      builder: (ctx, _) {
+        return MaterialApp(
+          title: 'Смены Полимира+',
+          initialRoute: '/',
+          theme: Provider.of<UserSettings>(ctx, listen: true).getUserTheme(),
+          routes: {
+            '/': (context) => MainScreen(),
+            CalendarScreen.routeName: (_) => CalendarScreen(),
+            ConfigurationMainScreen.routeName: (_) => ConfigurationMainScreen(),
+            ConfigurationScreen.routeName: (_) => ConfigurationScreen(),
+            AboutScreen.routeName: (_) => AboutScreen(),
+            EditShiftScreen.routeName: (_) => EditShiftScreen(),
+          },
+        );
+      },
     );
   }
 }

@@ -10,19 +10,19 @@ class ThemeDropdown extends StatefulWidget {
 }
 
 class _ThemeDropdownState extends State<ThemeDropdown> {
-  String _selectedItem = UserSettings.themes[0];
+  String _selectedItem = UserSettings.themes.keys.first;
 
   void _onChange(String? selectedItem) {
     setState(() {
       _selectedItem = selectedItem ?? _selectedItem;
     });
-    Provider.of<UserSettings>(context, listen: false).saveTheme(_selectedItem);
+    Provider.of<UserSettings>(context, listen: false).changeTheme(_selectedItem);
   }
 
-  void _loadTheme() async {
-    var theme = await Provider.of<UserSettings>(context, listen: false).retrieveTheme();
+  void _loadTheme() {
+    var themeName = Provider.of<UserSettings>(context, listen: false).currentThemeName;
     setState(() {
-      _selectedItem = theme;
+      _selectedItem = themeName;
     });
   }
 
@@ -40,7 +40,7 @@ class _ThemeDropdownState extends State<ThemeDropdown> {
       child: InputDecorator(
         decoration: InputDecoration(
           labelText: 'Тема оформления',
-          labelStyle: TextStyle(color: Colors.black, fontSize: 20),
+          labelStyle: TextStyle(color: Theme.of(context).primaryColor, fontSize: 20),
           border: const OutlineInputBorder(),
         ),
         child: DropdownButtonHideUnderline(
@@ -53,7 +53,7 @@ class _ThemeDropdownState extends State<ThemeDropdown> {
             ),
             icon: Icon(Icons.keyboard_arrow_down),
             value: _selectedItem,
-            items: UserSettings.themes.map((item) {
+            items: UserSettings.themes.keys.map((item) {
               return DropdownMenuItem<String>(
                 value: item,
                 child: Text(
