@@ -10,6 +10,8 @@ import 'package:flutter/rendering.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:provider/provider.dart';
 
+import 'slogan_widget.dart';
+
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -30,8 +32,10 @@ class _MainScreenState extends State<MainScreen> {
         title: const Text('Смены Полимира+'),
       ),
       drawer: const MainDrawer(),
+      // backgroundColor: Colors.white,
       body: ListView(
         children: [
+          Slogan(),
           DateInfo(),
           const Divider(
             height: 5,

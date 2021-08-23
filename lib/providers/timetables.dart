@@ -7,10 +7,10 @@ import 'package:calendaroffactory/persistent/database_service.dart';
 import 'package:flutter/material.dart';
 
 class Timetables with ChangeNotifier {
-  static const colorInDay = const Color(0xFFFFBABA);
-  static const colorAfterNight = const Color(0xFFBBFFBA);
-  static const colorInNight = const Color(0xFFBACFFF);
-  static const colorInEvening = const Color(0xFFF1BAFF);
+  static const colorInDay = const Color(0xFFFFD3D3);
+  static const colorAfterNight = const Color(0xFFe9ffd3);
+  static const colorInNight = const Color(0xFFd3ffff);
+  static const colorInEvening = const Color(0xFFe9d3ff);
   static const colorDayOff = const Color(0xFFFFFFFF);
 
   static const _timetableTwelfth30 = const Timetable(

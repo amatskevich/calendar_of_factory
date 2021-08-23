@@ -76,3 +76,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Epsilon
+      fonts:
+        - asset: assets/EpsilonCTT.ttf
+    - family: Bierahinia
+      fonts:
+        - asset: assets/Bierahinia.ttf
