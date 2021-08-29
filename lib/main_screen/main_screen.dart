@@ -2,6 +2,7 @@ import 'package:calendaroffactory/configuration_main_screen/configuration_main_s
 import 'package:calendaroffactory/main_screen/date_widget.dart';
 import 'package:calendaroffactory/main_screen/multi_view/multi_view_widget.dart';
 import 'package:calendaroffactory/main_screen/single_view/single_view_widget.dart';
+import 'package:calendaroffactory/main_screen/theme_image_widget.dart';
 import 'package:calendaroffactory/models/shift.dart';
 import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:calendaroffactory/widgets/main_drawer.dart';
@@ -30,6 +31,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Смены Полимира+'),
+        actions: [ThemeImage()],
       ),
       drawer: const MainDrawer(),
       // backgroundColor: Colors.white,

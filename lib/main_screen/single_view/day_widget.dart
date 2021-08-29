@@ -17,7 +17,7 @@ class DayItem extends StatelessWidget {
     Position position = CalendarEngine.calculatePositionForDay(day: date, shift: shift);
     return Container(
       decoration: BoxDecoration(
-        color: position.color,//.withOpacity(0.7),
+        color: position.color,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(color: Colors.black),

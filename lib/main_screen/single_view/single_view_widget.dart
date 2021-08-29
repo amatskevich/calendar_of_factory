@@ -32,7 +32,7 @@ class SingleViewWidget extends StatelessWidget {
             });
           },
           shrinkWrap: true,
-          itemCount: 4,
+          itemCount: 5,
         ),
       ],
     );

@@ -18,7 +18,7 @@ class Info extends StatelessWidget {
         margin: EdgeInsets.all(9.5),
         padding: EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
-          color: Colors.black12,
+          color: Colors.grey.shade300,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
