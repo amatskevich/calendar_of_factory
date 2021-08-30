@@ -40,14 +40,17 @@ class Slogan extends StatelessWidget {
       case UserSettings.vasilky:
         return Padding(
           padding: const EdgeInsets.only(top: 15.0),
-          child: Text(
-            'А хто там ідзе?',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: 'Bierahinia',
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).primaryColorDark,
+          child: FittedBox(
+            fit: BoxFit.fitWidth,
+            child: Text(
+              'А хто там ідзе?',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Bierahinia',
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).primaryColorDark,
+              ),
             ),
           ),
         );

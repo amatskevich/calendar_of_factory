@@ -35,10 +35,13 @@ class DateInfo extends StatelessWidget {
             child: TextButton(
               style: TextButton.styleFrom(primary: Theme.of(context).primaryColor),
               child: Consumer<SelectedDate>(builder: (context, cart, child) {
-                return Text(
-                  DateFormat('yMMMEd', 'ru_RU').format(cart.selectedDate),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                return FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    DateFormat('yMMMEd', 'ru_RU').format(cart.selectedDate),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                  ),
                 );
               }),
               onPressed: () => _presentDatePicker(context),
