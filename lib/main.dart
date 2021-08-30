@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       ],
       builder: (ctx, _) {
         return MaterialApp(
-          title: 'Смены Полимира+',
+          title: 'Смены Полимира',
           initialRoute: '/',
           theme: Provider.of<UserSettings>(ctx, listen: true).getUserTheme(),
           routes: {
