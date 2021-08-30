@@ -1,3 +1,4 @@
+import 'package:calendaroffactory/calendar_screen/position_dialog.dart';
 import 'package:calendaroffactory/models/position.dart';
 import 'package:flutter/material.dart';
 
@@ -17,16 +18,29 @@ class CalendarDay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.zero,
-      color: position != null ? position!.color : Colors.black,
-      shape: ContinuousRectangleBorder(
-        side: BorderSide(
-          color: Colors.black,
-          width: 1,
+    return GestureDetector(
+      onTap: position == null ? null : () {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return PositionDialog(
+                day: dayNumber,
+                position: position!,
+                salary: salaryDays.contains(dayNumber),
+              );
+            });
+      },
+      child: Card(
+        margin: EdgeInsets.zero,
+        color: position != null ? position!.color : Colors.black,
+        shape: ContinuousRectangleBorder(
+          side: BorderSide(
+            color: Colors.black,
+            width: 1,
+          ),
         ),
+        child: position != null ? _buildCell(position!) : null,
       ),
-      child: position != null ? _buildCell(position!) : null,
     );
   }
 
