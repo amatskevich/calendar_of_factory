@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserSettings with ChangeNotifier {
-  static const smellChabor = 'Пахне чабор';
-  static const vasilky = 'Василки';
-  static const longLife = 'Жыве';
+  static const smellChabor = 'Фиолетовая';
+  static const vasilky = 'Синяя';
+  static const longLife = 'Красная';
   static final Map<String, ThemeData> themes = {
     smellChabor: ThemeData(
       primarySwatch: Colors.purple,
       brightness: Brightness.light,
+      scaffoldBackgroundColor: const Color(0xFFf3e4f5),
     ),
     vasilky: ThemeData(
       primarySwatch: Colors.blue,
       brightness: Brightness.light,
+      scaffoldBackgroundColor: const Color(0xFFe3f2fd),
     ),
     longLife: ThemeData(
       primarySwatch: Colors.red,
       brightness: Brightness.light,
+      scaffoldBackgroundColor: const Color(0xFFfee8e6),
     ),
   };
 
@@ -40,6 +43,6 @@ class UserSettings with ChangeNotifier {
   }
 
   ThemeData getUserTheme() {
-    return themes[_currentThemeName]!;
+    return themes[_currentThemeName] ?? themes[smellChabor]!;
   }
 }

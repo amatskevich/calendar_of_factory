@@ -74,7 +74,7 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
                 ElevatedButton(
                   onPressed: () => Navigator.pop(context),
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.red),
+                    backgroundColor: MaterialStateProperty.all(Colors.redAccent),
                     foregroundColor: MaterialStateProperty.all(Colors.white),
                   ),
                   child: Text(
@@ -83,8 +83,13 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
                   ),
                 ),
                 ElevatedButton(
-                    onPressed: _selectedTimesheet != null && _selectedShift != null ? () => _save() : null,
-                    child: Text('Сохранить', style: TextStyle(fontSize: 20))),
+                  onPressed: _selectedTimesheet != null && _selectedShift != null ? () => _save() : null,
+                  child: Text('Сохранить', style: const TextStyle(fontSize: 20)),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.lightGreen),
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                  ),
+                ),
               ],
             ),
           ],
