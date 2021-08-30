@@ -33,8 +33,8 @@ class CalendarDay extends StatelessWidget {
       child: Card(
         margin: EdgeInsets.zero,
         color: position != null ? position!.color : Colors.black,
-        shape: ContinuousRectangleBorder(
-          side: BorderSide(
+        shape: const ContinuousRectangleBorder(
+          side: const BorderSide(
             color: Colors.black,
             width: 1,
           ),
@@ -54,9 +54,9 @@ class CalendarDay extends StatelessWidget {
           color: todayDay == dayNumber ? Colors.yellowAccent : null,
           child: Text(
             dayNumber.toString(),
-            style: TextStyle(
-              fontSize: 20,
-              color: Color(0xFFC60204),
+            style: const TextStyle(
+              fontSize: 15,
+              color: const Color(0xFFC60204),
             ),
           ),
         ),
@@ -67,11 +67,11 @@ class CalendarDay extends StatelessWidget {
               padding: EdgeInsets.only(left: 5),
               child: Visibility(
                 visible: salaryDays.contains(dayNumber),
-                child: Text(
+                child: const Text(
                   '\$',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
-                    color: Color(0xFF025106),
+                    color: const Color(0xFF025106),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -81,7 +81,7 @@ class CalendarDay extends StatelessWidget {
               padding: EdgeInsets.only(right: 5),
               child: Text(
                 pos.sign,
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
             ),
           ],
