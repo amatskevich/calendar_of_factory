@@ -26,8 +26,8 @@ class WorkHours extends StatelessWidget {
             padding: const EdgeInsets.all(4.0),
             child: Text(
               timetableNumber,
-              style: TextStyle(
-                fontSize: 15,
+              style: const TextStyle(
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -47,8 +47,22 @@ class WorkHours extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: TextStyle(fontSize: 15),),
-          Text(value, style: TextStyle(fontSize: 15),),
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 4.0),
+              child: Text(
+                label,
+                overflow: TextOverflow.fade,
+                softWrap: false,
+                textAlign: TextAlign.left,
+                style: const TextStyle(fontSize: 22),
+              ),
+            ),
+          ),
+          Text(
+            value,
+            style: const TextStyle(fontSize: 22),
+          ),
         ],
       ),
     );
