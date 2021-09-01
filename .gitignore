@@ -38,3 +38,4 @@ lib/generated_plugin_registrant.dart
 /.metadata
 /pubspec.lock
 /ios/
+/android/key.properties
