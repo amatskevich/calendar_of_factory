@@ -1,4 +1,5 @@
 import 'package:calendaroffactory/about_screen/app_version_widget.dart';
+import 'package:calendaroffactory/about_screen/mailto_widget.dart';
 import 'package:flutter/material.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class AboutScreen extends StatelessWidget {
             const Text('завода Полимир', style: const TextStyle(fontSize: 20)),
             AppVersion(),
             const Text('Разработчик ...', style: const TextStyle(fontSize: 20)),
-            const Text('calendar.of.factory@gmail.com', style: const TextStyle(fontSize: 20)), //TODO link mailto
+            MailtoDeveloper(),
           ],
         ),
       ),
