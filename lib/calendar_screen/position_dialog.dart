@@ -22,7 +22,7 @@ class PositionDialog extends StatelessWidget {
   contentBox(context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[

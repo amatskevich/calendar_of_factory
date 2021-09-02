@@ -53,10 +53,10 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Информация о смене'),
+        title: const Text('Информация о смене'),
         actions: [
           IconButton(
-            icon: Icon(Icons.save),
+            icon: const Icon(Icons.save),
             onPressed: _saveForm,
           )
         ],
@@ -70,7 +70,7 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
               child: Text(
                 '${_shift!.timetable.name} (${_shift!.timetable.timetableNumber})',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 25),
+                style: const TextStyle(fontSize: 25),
               ),
             ),
             const Divider(
@@ -89,7 +89,7 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
                     child: SwitchListTile(
                       title: const Text(
                         'Отображать на главной',
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                       ),
                       value: _showOnMainScreen,
                       onChanged: (value) {
@@ -106,7 +106,7 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
                         labelText: 'Название смены',
                         hintText: _shift!.defaultName,
                         labelStyle: const TextStyle(fontSize: 20),
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                       ),
                       style: const TextStyle(fontSize: 25),
                       initialValue: _shift!.name,
@@ -123,10 +123,10 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10.0),
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Дополнительная информация',
                         labelStyle: const TextStyle(fontSize: 20),
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                       ),
                       style: const TextStyle(fontSize: 25),
                       maxLines: 5,

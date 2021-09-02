@@ -24,7 +24,7 @@ class DateInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 5),
+      margin: const EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 5),
       child: Row(
         children: [
           DateArrowButton(
@@ -40,7 +40,7 @@ class DateInfo extends StatelessWidget {
                   child: Text(
                     DateFormat('yMMMEd', 'ru_RU').format(cart.selectedDate),
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                   ),
                 );
               }),

@@ -10,12 +10,12 @@ class MailtoDeveloper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Center(
-      child: new RichText(
-        text: new TextSpan(
+    return Center(
+      child: RichText(
+        text: TextSpan(
           text: appMail,
-          style: new TextStyle(color: Colors.blue, fontSize: 20),
-          recognizer: new TapGestureRecognizer()
+          style: const TextStyle(color: Colors.blue, fontSize: 20),
+          recognizer: TapGestureRecognizer()
             ..onTap = () {
               launchMailto();
             },

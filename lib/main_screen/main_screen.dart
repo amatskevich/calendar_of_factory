@@ -31,13 +31,13 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Смены Полимира', overflow: TextOverflow.fade),
-        actions: [ThemeImage()],
+        actions: [const ThemeImage()],
       ),
       drawer: const MainDrawer(),
       // backgroundColor: Colors.white,
       body: ListView(
         children: [
-          Slogan(),
+          const Slogan(),
           DateInfo(),
           const Divider(
             height: 5,
@@ -49,7 +49,7 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () => Navigator.of(context).pushNamed(ConfigurationMainScreen.routeName),
       ),
     );
@@ -59,11 +59,11 @@ class _MainScreenState extends State<MainScreen> {
     final length = shifts.length;
     Widget result;
     if (length == 0) {
-      result = Center(
+      result = const Center(
         child: const Text(
           'Пожалуйста добавьте хотя бы одну смену',
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 25,
           ),
         ),

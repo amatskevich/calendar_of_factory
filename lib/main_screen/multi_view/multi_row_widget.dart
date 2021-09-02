@@ -21,11 +21,11 @@ class MultiRowWidget extends StatelessWidget {
           color: position.color,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
-            BoxShadow(color: Colors.black),
+            const BoxShadow(color: Colors.black),
           ],
         ),
-        margin: EdgeInsets.all(5),
-        padding: EdgeInsets.all(5),
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         width: double.infinity,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -36,19 +36,19 @@ class MultiRowWidget extends StatelessWidget {
                   Text(
                     '${shift.timetable.name} - Смена: ${shift.name}',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 15),
+                    style: const TextStyle(fontSize: 15),
                   ),
                   Text(
                     position.name,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                   ),
                 ],
               ),
             ),
             IconButton(
               onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shift),
-              icon: Icon(Icons.info_outline),
+              icon: const Icon(Icons.info_outline),
             ),
           ],
         ),

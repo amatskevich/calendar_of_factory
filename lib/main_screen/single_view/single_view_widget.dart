@@ -25,7 +25,7 @@ class SingleViewWidget extends StatelessWidget {
           ),
         ),
         ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (ctx, index) {
             return Consumer<SelectedDate>(builder: (context, cart, child) {
               return DayItem(shift: shift, index: index, selectedDate: cart.selectedDate);

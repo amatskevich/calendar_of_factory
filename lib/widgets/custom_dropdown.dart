@@ -43,7 +43,7 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
       child: InputDecorator(
         decoration: InputDecoration(
           labelText: widget.label,
-          labelStyle: TextStyle(color: Colors.black, fontSize: 20),
+          labelStyle: const TextStyle(color: Colors.black, fontSize: 20),
           // labelStyle: Theme.of(context).primaryTextTheme.caption.copyWith(color: Colors.black),
           border: const OutlineInputBorder(),
         ),
@@ -51,18 +51,18 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
           child: DropdownButton<T>(
             isExpanded: true,
             isDense: true,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 23,
             ),
-            icon: Icon(Icons.keyboard_arrow_down),
+            icon: const Icon(Icons.keyboard_arrow_down),
             value: _selectedItem,
             items: widget.items.map((item) {
               return DropdownMenuItem<T>(
                 value: item,
                 child: Text(
                   widget.nameFunc(item),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 23,
                   ),

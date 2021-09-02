@@ -11,9 +11,9 @@ class ShiftRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        border: Border(
-          top: BorderSide(
+      decoration: const BoxDecoration(
+        border: const Border(
+          top: const BorderSide(
             width: 0.8,
             color: Colors.black12,
           ),
@@ -27,7 +27,7 @@ class ShiftRow extends StatelessWidget {
               padding: const EdgeInsets.only(right: 8.0),
               child: Text(
                 'Смена ${shift.name}',
-                style: TextStyle(fontSize: 25),
+                style: const TextStyle(fontSize: 25),
                 overflow: TextOverflow.fade,
                 softWrap: false,
                 textAlign: TextAlign.left,
@@ -36,7 +36,7 @@ class ShiftRow extends StatelessWidget {
           ),
           IconButton(
             onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shift),
-            icon: Icon(Icons.info_outline),
+            icon: const Icon(Icons.info_outline),
             iconSize: 30,
           ),
         ],

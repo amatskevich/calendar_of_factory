@@ -20,11 +20,11 @@ class DayItem extends StatelessWidget {
         color: position.color,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
-          BoxShadow(color: Colors.black),
+          const BoxShadow(color: Colors.black),
         ],
       ),
-      margin: EdgeInsets.all(5),
-      padding: EdgeInsets.all(5),
+      margin: const EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       child: Column(
         children: [
           Container(
@@ -32,7 +32,7 @@ class DayItem extends StatelessWidget {
             child: Text(
               position.description,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 25),
+              style: const TextStyle(fontSize: 25),
             ),
           ),
           Container(
@@ -40,7 +40,7 @@ class DayItem extends StatelessWidget {
             child: Text(
               DateFormat('E, d MMMM', 'ru_RU').format(date),
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
           )
         ],

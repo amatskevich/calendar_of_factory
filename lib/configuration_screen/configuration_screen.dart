@@ -9,14 +9,14 @@ class ConfigurationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Настройки'),
+        title: const Text('Настройки'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
-            ThemeDropdown(),
-            Padding(
+            const ThemeDropdown(),
+            const Padding(
               padding: const EdgeInsets.only(bottom: 12.0),
               child: const Divider(
                 height: 5,
@@ -25,7 +25,7 @@ class ConfigurationScreen extends StatelessWidget {
                 endIndent: 20,
               ),
             ),
-            ShiftsView(),
+            const ShiftsView(),
           ],
         ),
       ),

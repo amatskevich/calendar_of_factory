@@ -25,7 +25,7 @@ class _ShiftsViewState extends State<ShiftsView> {
   @override
   Widget build(BuildContext context) {
     return ExpansionPanelList(
-      expandedHeaderPadding: EdgeInsets.all(8),
+      expandedHeaderPadding: const EdgeInsets.all(8),
       dividerColor: Colors.red,
       children: _timetables.map((e) => _buildExpansionPanel(e, _timetables.indexOf(e))).toList(),
       expansionCallback: (i, isOpen) => setState(() => _isOpen[i] = !isOpen),

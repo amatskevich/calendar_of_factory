@@ -26,13 +26,13 @@ class WeekDayNames extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.amberAccent,
           boxShadow: [
-            BoxShadow(color: Colors.black),
+            const BoxShadow(color: Colors.black),
           ],
         ),
         child: Text(
           text,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 15,
           ),
         ),

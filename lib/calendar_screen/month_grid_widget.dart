@@ -14,7 +14,7 @@ class MonthGrid extends StatelessWidget {
     var dayNumber = 1;
     return Container(
       child: GridView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 7,

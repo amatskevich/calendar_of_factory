@@ -46,18 +46,18 @@ class _ThemeDropdownState extends State<ThemeDropdown> {
           child: DropdownButton<String>(
             isExpanded: true,
             isDense: true,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 23,
             ),
-            icon: Icon(Icons.keyboard_arrow_down),
+            icon: const Icon(Icons.keyboard_arrow_down),
             value: _selectedItem,
             items: UserSettings.themes.keys.map((item) {
               return DropdownMenuItem<String>(
                 value: item,
                 child: Text(
                   item,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 23,
                   ),

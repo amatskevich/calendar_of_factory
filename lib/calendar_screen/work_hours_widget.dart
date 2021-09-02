@@ -16,8 +16,11 @@ class WorkHours extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var workHoursData =
-        WorkHoursEngine.calculateWorkHoursData(positions: positions, year: date.year, month: date.month);
+    var workHoursData = WorkHoursEngine.calculateWorkHoursData(
+      positions: positions,
+      year: date.year,
+      month: date.month,
+    );
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(

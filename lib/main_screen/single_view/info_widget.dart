@@ -15,8 +15,8 @@ class Info extends StatelessWidget {
       onTap: () => Navigator.of(context).pushNamed(CalendarScreen.routeName, arguments: shift),
       child: Container(
         width: double.infinity,
-        margin: EdgeInsets.all(9.5),
-        padding: EdgeInsets.symmetric(vertical: 8),
+        margin: const EdgeInsets.all(9.5),
+        padding: const EdgeInsets.symmetric(vertical: 8),
         decoration: BoxDecoration(
           color: Colors.grey.shade300,
           borderRadius: BorderRadius.circular(8),
@@ -29,12 +29,12 @@ class Info extends StatelessWidget {
                 children: [
                   Text(
                     shift.timetable.name,
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                   Text(
                     'Смена ${shift.name}',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -42,7 +42,7 @@ class Info extends StatelessWidget {
             ),
             IconButton(
               onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shift),
-              icon: Icon(Icons.info_outline),
+              icon: const Icon(Icons.info_outline),
               iconSize: 30,
             ),
           ],

@@ -17,7 +17,7 @@ class CalendarInfo extends StatelessWidget {
           Text(
             DateFormat('MMM yyyy', 'ru_RU').format(date),
             textAlign: TextAlign.left,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.bold,
             ),
@@ -30,7 +30,7 @@ class CalendarInfo extends StatelessWidget {
                 textAlign: TextAlign.right,
                 overflow: TextOverflow.fade,
                 softWrap: false,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 22,
                 ),
               ),

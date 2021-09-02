@@ -50,7 +50,7 @@ class CalendarDay extends StatelessWidget {
       children: [
         Container(
           width: double.infinity,
-          padding: EdgeInsets.only(left: 5),
+          padding: const EdgeInsets.only(left: 5),
           color: todayDay == dayNumber ? Colors.yellowAccent : null,
           child: Text(
             dayNumber.toString(),
@@ -64,7 +64,7 @@ class CalendarDay extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              padding: EdgeInsets.only(left: 5),
+              padding: const EdgeInsets.only(left: 5),
               child: Visibility(
                 visible: salaryDays.contains(dayNumber),
                 child: const Text(
@@ -78,7 +78,7 @@ class CalendarDay extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(right: 5),
+              padding: const EdgeInsets.only(right: 5),
               child: Text(
                 pos.sign,
                 style: const TextStyle(fontSize: 20),

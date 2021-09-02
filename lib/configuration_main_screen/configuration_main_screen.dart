@@ -77,14 +77,17 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
                     backgroundColor: MaterialStateProperty.all(Colors.redAccent),
                     foregroundColor: MaterialStateProperty.all(Colors.white),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Отмена',
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                   ),
                 ),
                 ElevatedButton(
                   onPressed: _selectedTimesheet != null && _selectedShift != null ? () => _save() : null,
-                  child: Text('Сохранить', style: const TextStyle(fontSize: 20)),
+                  child: const Text(
+                    'Сохранить',
+                    style: const TextStyle(fontSize: 20),
+                  ),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.lightGreen),
                     foregroundColor: MaterialStateProperty.all(Colors.white),
