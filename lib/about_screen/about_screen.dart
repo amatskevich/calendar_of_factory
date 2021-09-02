@@ -1,3 +1,4 @@
+import 'package:calendaroffactory/about_screen/app_version_widget.dart';
 import 'package:flutter/material.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -8,18 +9,18 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Справка'),
+        title: const Text('Справка'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Приложение для просмотра', style: TextStyle(fontSize: 20)),
-            Text('графика работы смен', style: TextStyle(fontSize: 20)),
-            Text('завода Полимир', style: TextStyle(fontSize: 20)),
-            Text('Версия - 2.0.0-beta', style: TextStyle(fontSize: 20)), //TODO dynamic version
-            Text('Разработчик ...', style: TextStyle(fontSize: 20)),
-            Text('calendar.of.factory@gmail.com', style: TextStyle(fontSize: 20)), //TODO link mailto
+            const Text('Приложение для просмотра', style: const TextStyle(fontSize: 20)),
+            const Text('графика работы смен', style: const TextStyle(fontSize: 20)),
+            const Text('завода Полимир', style: const TextStyle(fontSize: 20)),
+            AppVersion(),
+            const Text('Разработчик ...', style: const TextStyle(fontSize: 20)),
+            const Text('calendar.of.factory@gmail.com', style: const TextStyle(fontSize: 20)), //TODO link mailto
           ],
         ),
       ),

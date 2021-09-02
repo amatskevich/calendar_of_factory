@@ -34,7 +34,6 @@ class _ThemeDropdownState extends State<ThemeDropdown> {
 
   @override
   Widget build(BuildContext context) {
-    // _selectedItem = await Provider.of<UserSettings>(context, listen: false).retrieveTheme();
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: InputDecorator(
