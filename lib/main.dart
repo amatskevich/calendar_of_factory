@@ -1,6 +1,7 @@
 import 'package:calendaroffactory/configuration_main_screen/configuration_main_screen.dart';
 import 'package:calendaroffactory/providers/selected_date.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'about_screen/about_screen.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: SelectedDate()),
