@@ -37,6 +37,7 @@ class _MainScreenState extends State<MainScreen> {
         prefs.setBool(_key, false);
         showGeneralDialog(
             context: context,
+            barrierColor: Colors.black,
             pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
               return const WelcomeDialog();
             });

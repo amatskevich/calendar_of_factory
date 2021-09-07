@@ -22,7 +22,7 @@ class WelcomeDialog extends StatelessWidget {
             enableInfiniteScroll: false,
             pauseAutoPlayInFiniteScroll: true,
             onPageChanged: (index, reason) {
-              if (index == 5) {
+              if (index == 6) {
                 Navigator.of(context).pop();
               }
             },
@@ -63,6 +63,13 @@ class WelcomeDialog extends StatelessWidget {
                 'фиолетовая\n'
                 'красная\n'
                 'синяя',
+                style: const TextStyle(fontSize: 25),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const Center(
+              child: const Text(
+                'Надеюсь, вам понравится',
                 style: const TextStyle(fontSize: 25),
                 textAlign: TextAlign.center,
               ),
