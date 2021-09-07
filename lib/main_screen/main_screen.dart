@@ -10,8 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'slogan_widget.dart';
+import 'welcome_dialog.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -19,10 +21,27 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  static const _key = 'by.matskevich.calendaroffactory.welcome';
+
   @override
   void initState() {
     super.initState();
     initializeDateFormatting('ru_RU', null);
+    _initWelcomeDialog();
+  }
+
+  void _initWelcomeDialog() {
+    SharedPreferences.getInstance().then((prefs) {
+      var isFirstTime = prefs.getBool(_key);
+      if (isFirstTime == null) {
+        prefs.setBool(_key, false);
+        showGeneralDialog(
+            context: context,
+            pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+              return const WelcomeDialog();
+            });
+      }
+    });
   }
 
   @override
