@@ -140,6 +140,33 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
                       },
                     ),
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () => Navigator.pop(context),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.redAccent),
+                          foregroundColor: MaterialStateProperty.all(Colors.white),
+                        ),
+                        child: const Text(
+                          'Назад',
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: _saveForm,
+                        child: const Text(
+                          'Сохранить',
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(Colors.lightGreen),
+                          foregroundColor: MaterialStateProperty.all(Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
