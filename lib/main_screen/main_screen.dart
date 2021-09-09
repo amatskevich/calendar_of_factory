@@ -81,7 +81,7 @@ class _MainScreenState extends State<MainScreen> {
     if (length == 0) {
       result = const Center(
         child: const Text(
-          'Пожалуйста добавьте хотя бы одну смену',
+          'Пожалуйста, добавьте хотя бы одну смену',
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontSize: 25,
