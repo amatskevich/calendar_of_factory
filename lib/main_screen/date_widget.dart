@@ -9,6 +9,7 @@ class DateInfo extends StatelessWidget {
   void _presentDatePicker(BuildContext context) {
     showDatePicker(
       context: context,
+      locale: const Locale('ru', ''),
       initialDate: Provider.of<SelectedDate>(context, listen: false).selectedDate,
       firstDate: DateTime(2020),
       lastDate: DateTime(2100),
