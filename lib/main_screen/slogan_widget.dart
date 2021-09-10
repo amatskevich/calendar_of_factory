@@ -19,7 +19,7 @@ class Slogan extends StatelessWidget {
               fontFamily: 'Epsilon',
               fontSize: 40,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).primaryColorDark,
+              color: Colors.red.shade300,
             ),
           ),
         );
@@ -33,7 +33,7 @@ class Slogan extends StatelessWidget {
               fontFamily: 'Epsilon',
               fontSize: 40,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).primaryColorDark,
+              color: Colors.purple.shade300,
             ),
           ),
         );
@@ -48,8 +48,8 @@ class Slogan extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Bierahinia',
                 fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).primaryColorDark,
+                fontWeight: FontWeight.w600,
+                color: Colors.blue.shade400,
               ),
             ),
           ),

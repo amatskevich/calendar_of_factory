@@ -70,6 +70,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
+        elevation: 0,
         onPressed: () => Navigator.of(context).pushNamed(ConfigurationMainScreen.routeName),
       ),
     );
