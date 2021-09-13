@@ -53,7 +53,7 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Информация о смене'),
+        title: const FittedBox(child: const Text('Информация о смене')),
         actions: [
           IconButton(
             icon: const Icon(Icons.save),

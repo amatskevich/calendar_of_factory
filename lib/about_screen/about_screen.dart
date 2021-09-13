@@ -3,7 +3,6 @@ import 'package:calendaroffactory/about_screen/mailto_widget.dart';
 import 'package:flutter/material.dart';
 
 class AboutScreen extends StatelessWidget {
-
   static const routeName = '/about';
 
   @override
@@ -16,11 +15,14 @@ class AboutScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('Приложение для просмотра', style: const TextStyle(fontSize: 20)),
-            const Text('графика работы смен', style: const TextStyle(fontSize: 20)),
-            const Text('завода Полимир', style: const TextStyle(fontSize: 20)),
+            const Text(
+              'Приложение для просмотра\n'
+              'графика работы смен\n'
+              'завода Полимир',
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 20),
+            ),
             AppVersion(),
-            const Text('Разработчик ...', style: const TextStyle(fontSize: 20)),
             MailtoDeveloper(),
           ],
         ),

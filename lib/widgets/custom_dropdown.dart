@@ -60,11 +60,13 @@ class _CustomDropdownState<T> extends State<CustomDropdown<T>> {
             items: widget.items.map((item) {
               return DropdownMenuItem<T>(
                 value: item,
-                child: Text(
-                  widget.nameFunc(item),
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 23,
+                child: FittedBox(
+                  child: Text(
+                    widget.nameFunc(item),
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 23,
+                    ),
                   ),
                 ),
               );

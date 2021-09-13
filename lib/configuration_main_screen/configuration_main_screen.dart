@@ -48,7 +48,7 @@ class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Добавление смены'),
+        title: const FittedBox(child: const Text('Добавление смены')),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),

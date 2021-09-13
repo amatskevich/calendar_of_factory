@@ -53,12 +53,14 @@ class WorkHours extends StatelessWidget {
           Flexible(
             child: Padding(
               padding: const EdgeInsets.only(right: 4.0),
-              child: Text(
-                label,
-                overflow: TextOverflow.fade,
-                softWrap: false,
-                textAlign: TextAlign.left,
-                style: const TextStyle(fontSize: 22),
+              child: FittedBox(
+                child: Text(
+                  label,
+                  overflow: TextOverflow.fade,
+                  softWrap: false,
+                  textAlign: TextAlign.left,
+                  style: const TextStyle(fontSize: 22),
+                ),
               ),
             ),
           ),

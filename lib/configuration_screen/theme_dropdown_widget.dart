@@ -55,11 +55,13 @@ class _ThemeDropdownState extends State<ThemeDropdown> {
             items: UserSettings.themes.keys.map((item) {
               return DropdownMenuItem<String>(
                 value: item,
-                child: Text(
-                  item,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 23,
+                child: FittedBox(
+                  child: Text(
+                    item,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 23,
+                    ),
                   ),
                 ),
               );

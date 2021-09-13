@@ -50,7 +50,7 @@ class _MainScreenState extends State<MainScreen> {
     var shifts = Provider.of<Timetables>(context, listen: true).getShiftsForMainScreen();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Смены Полимира', overflow: TextOverflow.fade),
+        title: const FittedBox(child: const Text('Смены Полимира', overflow: TextOverflow.fade)),
         actions: [const ThemeImage()],
       ),
       drawer: const MainDrawer(),

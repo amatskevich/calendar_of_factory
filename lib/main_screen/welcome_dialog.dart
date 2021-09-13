@@ -29,49 +29,61 @@ class WelcomeDialog extends StatelessWidget {
           ),
           items: [
             const Center(
-              child: const Text(
-                'Смены Полимира 2.0',
-                style: const TextStyle(fontSize: 25),
-                textAlign: TextAlign.center,
+              child: const FittedBox(
+                child: const Text(
+                  'Смены Полимира 2.0',
+                  style: const TextStyle(fontSize: 25),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             const Center(
-              child: const Text(
-                'Привет пользователь!\n\n'
-                'Это большое обновление.',
-                style: const TextStyle(fontSize: 25),
-                textAlign: TextAlign.center,
+              child: const FittedBox(
+                child: const Text(
+                  'Привет пользователь!\n\n'
+                  'Это большое обновление.',
+                  style: const TextStyle(fontSize: 25),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             const Center(
-              child: const Text(
-                'Выбирайте сами \nкакие и сколько смен отображать на главном экране',
-                style: const TextStyle(fontSize: 25),
-                textAlign: TextAlign.center,
+              child: const FittedBox(
+                child: const Text(
+                  'Выбирайте сами \nкакие и сколько смен\nотображать на главном экране',
+                  style: const TextStyle(fontSize: 25),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             const Center(
-              child: const Text(
-                'Сохраняйте дополнительную информацию о смене',
-                style: const TextStyle(fontSize: 25),
-                textAlign: TextAlign.center,
+              child: const FittedBox(
+                child: const Text(
+                  'Сохраняйте дополнительную\nинформацию о смене',
+                  style: const TextStyle(fontSize: 25),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             const Center(
-              child: const Text(
-                'Выбирайте одну из трех тем оформления:\n\n'
-                'фиолетовая\n'
-                'красная\n'
-                'синяя',
-                style: const TextStyle(fontSize: 25),
-                textAlign: TextAlign.center,
+              child: const FittedBox(
+                child: const Text(
+                  'Выбирайте тему оформления:\n\n'
+                  'фиолетовая\n'
+                  'красная\n'
+                  'синяя',
+                  style: const TextStyle(fontSize: 25),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             const Center(
-              child: const Text(
-                'Надеюсь, вам понравится',
-                style: const TextStyle(fontSize: 25),
-                textAlign: TextAlign.center,
+              child: const FittedBox(
+                child: const Text(
+                  'Надеюсь, вам понравится',
+                  style: const TextStyle(fontSize: 25),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             Container(),
