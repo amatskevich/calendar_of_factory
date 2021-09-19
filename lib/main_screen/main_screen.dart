@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:calendaroffactory/configuration_main_screen/configuration_main_screen.dart';
 import 'package:calendaroffactory/main_screen/date_widget.dart';
 import 'package:calendaroffactory/main_screen/multi_view/multi_view_widget.dart';
@@ -77,7 +79,7 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  Widget _generateMainInformation(Map<Timetable, List<Shift>> shifts) {
+  Widget _generateMainInformation(LinkedHashMap<Timetable, List<Shift>> shifts) {
     final length = shifts.length;
     Widget result;
     if (length == 0) {

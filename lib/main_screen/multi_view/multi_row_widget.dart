@@ -34,7 +34,7 @@ class MultiRowWidget extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    '${shift.timetable.name} - Смена: ${shift.name}',
+                    'Смена: ${shift.name}',
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 15),
                   ),

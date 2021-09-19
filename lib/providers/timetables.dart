@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:calendaroffactory/models/position.dart';
 import 'package:calendaroffactory/models/shift.dart';
 import 'package:calendaroffactory/models/timetable.dart';
@@ -65,9 +67,9 @@ class Timetables with ChangeNotifier {
     return [..._shifts.where((element) => element.timetable.type == type).toList()];
   }
 
-  Map<Timetable, List<Shift>> getShiftsForMainScreen() {
+  LinkedHashMap<Timetable, List<Shift>> getShiftsForMainScreen() {
     var filteredShifts = [..._shifts.where((element) => element.showOnMainScreen).toList()];
-    Map<Timetable, List<Shift>> result = {};
+    LinkedHashMap<Timetable, List<Shift>> result = LinkedHashMap();
     filteredShifts.forEach((element) {
       var list = result.putIfAbsent(element.timetable, () => []);
       list.add(element);
