@@ -65,8 +65,14 @@ class Timetables with ChangeNotifier {
     return [..._shifts.where((element) => element.timetable.type == type).toList()];
   }
 
-  List<Shift> getShiftsForMainScreen() {
-    return [..._shifts.where((element) => element.showOnMainScreen).toList()];
+  Map<Timetable, List<Shift>> getShiftsForMainScreen() {
+    var filteredShifts = [..._shifts.where((element) => element.showOnMainScreen).toList()];
+    Map<Timetable, List<Shift>> result = {};
+    filteredShifts.forEach((element) {
+      var list = result.putIfAbsent(element.timetable, () => []);
+      list.add(element);
+    });
+    return result;
   }
 
   void updateShift(Shift shift) {

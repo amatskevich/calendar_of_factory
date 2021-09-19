@@ -4,6 +4,7 @@ import 'package:calendaroffactory/main_screen/multi_view/multi_view_widget.dart'
 import 'package:calendaroffactory/main_screen/single_view/single_view_widget.dart';
 import 'package:calendaroffactory/main_screen/theme_image_widget.dart';
 import 'package:calendaroffactory/models/shift.dart';
+import 'package:calendaroffactory/models/timetable.dart';
 import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:calendaroffactory/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  Widget _generateMainInformation(List<Shift> shifts) {
+  Widget _generateMainInformation(Map<Timetable, List<Shift>> shifts) {
     final length = shifts.length;
     Widget result;
     if (length == 0) {
@@ -89,8 +90,8 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       );
-    } else if (length == 1) {
-      result = SingleViewWidget(shifts[0]);
+    } else if (length == 1 && shifts.values.first.length == 1) {
+      result = SingleViewWidget(shifts.values.first[0]);
     } else {
       result = MultiViewWidget(shifts);
     }
