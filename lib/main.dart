@@ -18,13 +18,15 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DatabaseService();
   var userTheme = await UserSettings.retrieveThemeFromPreferences();
-  runApp(MyApp(userTheme));
+  var carousel = await UserSettings.retrieveCarouselFromPreferences();
+  runApp(MyApp(userTheme, carousel));
 }
 
 class MyApp extends StatelessWidget {
   final String initialUserTheme;
+  final String initialTimetableCarousel;
 
-  MyApp(this.initialUserTheme);
+  MyApp(this.initialUserTheme, this.initialTimetableCarousel);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: SelectedDate()),
         ChangeNotifierProvider.value(value: Timetables()),
-        ChangeNotifierProvider.value(value: UserSettings(initialUserTheme)),
+        ChangeNotifierProvider.value(value: UserSettings(initialUserTheme, initialTimetableCarousel)),
       ],
       builder: (ctx, _) {
         return MaterialApp(

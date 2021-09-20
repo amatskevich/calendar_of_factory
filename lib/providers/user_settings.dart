@@ -27,23 +27,38 @@ class UserSettings with ChangeNotifier {
     ),
   };
 
-  static const _key = 'by.matskevich.calendaroffactory.theme';
+  static const _themeKey = 'by.matskevich.calendaroffactory.theme';
+  static const _carouselKey = 'by.matskevich.calendaroffactory.carousel';
 
   String _currentThemeName;
+  String _currentTimetableCarousel;
 
-  get currentThemeName => _currentThemeName;
+  String get currentThemeName => _currentThemeName;
 
-  UserSettings(this._currentThemeName);
+  String get currentTimetableCarousel => _currentTimetableCarousel;
+
+  UserSettings(this._currentThemeName, this._currentTimetableCarousel);
 
   void changeTheme(String theme) {
     _currentThemeName = theme;
-    SharedPreferences.getInstance().then((prefs) => prefs.setString(_key, theme));
+    SharedPreferences.getInstance().then((prefs) => prefs.setString(_themeKey, theme));
+    notifyListeners();
+  }
+
+  void changeTimetableCarousel(String timetable) {
+    _currentTimetableCarousel = timetable;
+    SharedPreferences.getInstance().then((prefs) => prefs.setString(_carouselKey, timetable));
     notifyListeners();
   }
 
   static Future<String> retrieveThemeFromPreferences() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getString(_key) ?? themes.keys.first;
+    return prefs.getString(_themeKey) ?? themes.keys.first;
+  }
+
+  static Future<String> retrieveCarouselFromPreferences() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_carouselKey) ?? "";
   }
 
   ThemeData getUserTheme() {
