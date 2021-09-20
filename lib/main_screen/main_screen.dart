@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:calendaroffactory/configuration_main_screen/configuration_main_screen.dart';
+import 'package:calendaroffactory/add_shifts_screen/add_shifts_screen.dart';
 import 'package:calendaroffactory/main_screen/date_widget.dart';
 import 'package:calendaroffactory/main_screen/multi_view/multi_view_widget.dart';
 import 'package:calendaroffactory/main_screen/single_view/single_view_widget.dart';
@@ -74,7 +74,7 @@ class _MainScreenState extends State<MainScreen> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         elevation: 0,
-        onPressed: () => Navigator.of(context).pushNamed(ConfigurationMainScreen.routeName),
+        onPressed: () => Navigator.of(context).pushNamed(AddShiftsScreen.routeName),
       ),
     );
   }

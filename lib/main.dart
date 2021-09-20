@@ -1,4 +1,4 @@
-import 'package:calendaroffactory/configuration_main_screen/configuration_main_screen.dart';
+import 'package:calendaroffactory/add_shifts_screen/add_shifts_screen.dart';
 import 'package:calendaroffactory/providers/selected_date.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           routes: {
             '/': (context) => MainScreen(),
             CalendarScreen.routeName: (_) => CalendarScreen(),
-            ConfigurationMainScreen.routeName: (_) => ConfigurationMainScreen(),
+            AddShiftsScreen.routeName: (_) => AddShiftsScreen(),
             ConfigurationScreen.routeName: (_) => ConfigurationScreen(),
             AboutScreen.routeName: (_) => AboutScreen(),
             EditShiftScreen.routeName: (_) => EditShiftScreen(),

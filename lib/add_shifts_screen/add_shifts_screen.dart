@@ -5,14 +5,14 @@ import 'package:calendaroffactory/widgets/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ConfigurationMainScreen extends StatefulWidget {
+class AddShiftsScreen extends StatefulWidget {
   static const routeName = '/configuration/main';
 
   @override
-  _ConfigurationMainScreenState createState() => _ConfigurationMainScreenState();
+  _AddShiftsScreenState createState() => _AddShiftsScreenState();
 }
 
-class _ConfigurationMainScreenState extends State<ConfigurationMainScreen> {
+class _AddShiftsScreenState extends State<AddShiftsScreen> {
   Timetable? _selectedTimesheet;
   Shift? _selectedShift;
 
