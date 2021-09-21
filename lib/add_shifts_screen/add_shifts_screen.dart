@@ -71,32 +71,35 @@ class _AddShiftsScreenState extends State<AddShiftsScreen> {
               child: CheckboxList(_shifts, _selectShifts, _selectedShifts),
               visible: _shifts.isNotEmpty,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.redAccent),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ElevatedButton(
+                    onPressed: () => Navigator.pop(context),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.redAccent),
+                      foregroundColor: MaterialStateProperty.all(Colors.white),
+                    ),
+                    child: const Text(
+                      'Отмена',
+                      style: const TextStyle(fontSize: 20),
+                    ),
                   ),
-                  child: const Text(
-                    'Отмена',
-                    style: const TextStyle(fontSize: 20),
+                  ElevatedButton(
+                    onPressed: _selectedTimesheet != null && _selectedShifts.isNotEmpty ? () => _save() : null,
+                    child: const Text(
+                      'Сохранить',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(_selectedShifts.isNotEmpty ? Colors.lightGreen : Colors.lightGreen.shade200),
+                      foregroundColor: MaterialStateProperty.all(Colors.white),
+                    ),
                   ),
-                ),
-                ElevatedButton(
-                  onPressed: _selectedTimesheet != null && _selectedShifts.isNotEmpty ? () => _save() : null,
-                  child: const Text(
-                    'Сохранить',
-                    style: const TextStyle(fontSize: 20),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(_selectedShifts.isNotEmpty ? Colors.lightGreen : Colors.lightGreen.shade200),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
