@@ -1,3 +1,4 @@
+import 'package:calendaroffactory/add_shifts_screen/checkbox_list_widget.dart';
 import 'package:calendaroffactory/models/shift.dart';
 import 'package:calendaroffactory/models/timetable.dart';
 import 'package:calendaroffactory/providers/timetables.dart';
@@ -14,27 +15,21 @@ class AddShiftsScreen extends StatefulWidget {
 
 class _AddShiftsScreenState extends State<AddShiftsScreen> {
   Timetable? _selectedTimesheet;
-  Shift? _selectedShift;
-
+  final _selectedShifts = Set<int>();
   List<Timetable> _timetables = [];
   List<Shift> _shifts = [];
 
   void _selectTimesheet(Timetable selectedTimesheet) {
     setState(() {
-      _selectedShift = null;
+      _selectedShifts.clear();
       _selectedTimesheet = selectedTimesheet;
-      _shifts = Provider.of<Timetables>(context, listen: false).getShiftsByTimetableType(selectedTimesheet.type);
-    });
-  }
-
-  void _selectShift(Shift selectedShift) {
-    setState(() {
-      _selectedShift = selectedShift;
+      _shifts = Provider.of<Timetables>(context, listen: false).getShiftsByTimetableType(selectedTimesheet.type)
+          .where((element) => !element.showOnMainScreen).toList();
     });
   }
 
   void _save() {
-    Provider.of<Timetables>(context, listen: false).showShiftOnMainScreen(_selectedShift!.id);
+    Provider.of<Timetables>(context, listen: false).showShiftsOnMainScreen(_selectedShifts);
     Navigator.pop(context);
   }
 
@@ -42,6 +37,16 @@ class _AddShiftsScreenState extends State<AddShiftsScreen> {
   void initState() {
     super.initState();
     _timetables = Provider.of<Timetables>(context, listen: false).timetables;
+  }
+
+  void _selectShifts(bool isAdd, List<int> shiftIds) {
+    setState(() {
+      if (isAdd) {
+        _selectedShifts.addAll(shiftIds);
+      } else {
+        _selectedShifts.removeAll(shiftIds);
+      }
+    });
   }
 
   @override
@@ -62,11 +67,9 @@ class _AddShiftsScreenState extends State<AddShiftsScreen> {
               nameFunc: (Timetable t) => '${t.name} (${t.timetableNumber})',
               func: _selectTimesheet,
             ),
-            CustomDropdown<Shift>(
-              label: 'Смена',
-              items: _shifts,
-              nameFunc: (Shift s) => s.name,
-              func: _selectShift,
+            Visibility(
+              child: CheckboxList(_shifts, _selectShifts, _selectedShifts),
+              visible: _shifts.isNotEmpty,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -83,13 +86,13 @@ class _AddShiftsScreenState extends State<AddShiftsScreen> {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: _selectedTimesheet != null && _selectedShift != null ? () => _save() : null,
+                  onPressed: _selectedTimesheet != null && _selectedShifts.isNotEmpty ? () => _save() : null,
                   child: const Text(
                     'Сохранить',
                     style: const TextStyle(fontSize: 20),
                   ),
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.lightGreen),
+                    backgroundColor: MaterialStateProperty.all(_selectedShifts.isNotEmpty ? Colors.lightGreen : Colors.lightGreen.shade200),
                     foregroundColor: MaterialStateProperty.all(Colors.white),
                   ),
                 ),

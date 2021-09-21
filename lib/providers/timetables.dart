@@ -93,8 +93,8 @@ class Timetables with ChangeNotifier {
     notifyListeners();
   }
 
-  void showShiftOnMainScreen(int shiftId) {
-    _shifts.where((element) => element.id == shiftId).forEach((shift) {
+  void showShiftsOnMainScreen(Set<int> shiftIds) {
+    _shifts.where((element) => shiftIds.contains(element.id)).forEach((shift) {
       shift.showOnMainScreen = true;
       databaseService.upsertShiftData(
         CustomShiftData(
