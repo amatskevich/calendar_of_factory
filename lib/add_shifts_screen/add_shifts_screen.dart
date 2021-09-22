@@ -73,10 +73,10 @@ class _AddShiftsScreenState extends State<AddShiftsScreen> {
               visible: _shifts.isNotEmpty,
             ),
             Visibility(
-              child: Text(
+              child: const Text(
                 'Все смены этого графика уже добавлены',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20),
               ),
               visible: _selectedTimesheet != null && _shifts.isEmpty,
             ),
