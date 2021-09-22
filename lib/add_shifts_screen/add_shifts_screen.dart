@@ -4,6 +4,7 @@ import 'package:calendaroffactory/models/timetable.dart';
 import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:calendaroffactory/widgets/custom_dropdown.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 class AddShiftsScreen extends StatefulWidget {
@@ -70,6 +71,14 @@ class _AddShiftsScreenState extends State<AddShiftsScreen> {
             Visibility(
               child: CheckboxList(_shifts, _selectShifts, _selectedShifts),
               visible: _shifts.isNotEmpty,
+            ),
+            Visibility(
+              child: Text(
+                'Все смены этого графика уже добавлены',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20),
+              ),
+              visible: _selectedTimesheet != null && _shifts.isEmpty,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20.0),
