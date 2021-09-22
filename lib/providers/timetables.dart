@@ -67,8 +67,8 @@ class Timetables with ChangeNotifier {
     return [..._shifts.where((element) => element.timetable.type == type).toList()];
   }
 
-  LinkedHashMap<Timetable, List<Shift>> getShiftsForMainScreen() {
-    var filteredShifts = [..._shifts.where((element) => element.showOnMainScreen).toList()];
+  LinkedHashMap<Timetable, List<Shift>> getGroupedShifts({bool mainScreen = false}) {
+    var filteredShifts = mainScreen ? [..._shifts.where((element) => element.showOnMainScreen).toList()] : [..._shifts];
     LinkedHashMap<Timetable, List<Shift>> result = LinkedHashMap();
     filteredShifts.forEach((element) {
       var list = result.putIfAbsent(element.timetable, () => []);

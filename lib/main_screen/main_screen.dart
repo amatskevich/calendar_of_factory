@@ -50,7 +50,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var shifts = Provider.of<Timetables>(context, listen: true).getShiftsForMainScreen();
+    var shifts = Provider.of<Timetables>(context, listen: true).getGroupedShifts(mainScreen: true);
     return Scaffold(
       appBar: AppBar(
         title: const FittedBox(child: const Text('Смены Полимира', overflow: TextOverflow.fade)),

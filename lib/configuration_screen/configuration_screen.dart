@@ -1,6 +1,9 @@
-import 'package:calendaroffactory/configuration_screen/shifts_view_widget.dart';
 import 'package:calendaroffactory/configuration_screen/theme_dropdown_widget.dart';
+import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'shifts_carousel_widget.dart';
 
 class ConfigurationScreen extends StatelessWidget {
   static const routeName = '/configuration';
@@ -25,10 +28,15 @@ class ConfigurationScreen extends StatelessWidget {
                 endIndent: 20,
               ),
             ),
-            const ShiftsView(),
+            _generateShiftsCarousel(context),
           ],
         ),
       ),
     );
+  }
+
+  ShiftsCarousel _generateShiftsCarousel(BuildContext context) {
+    var shifts = Provider.of<Timetables>(context, listen: true).getGroupedShifts();
+    return ShiftsCarousel(shifts);
   }
 }
