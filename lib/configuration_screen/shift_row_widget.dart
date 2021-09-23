@@ -1,6 +1,8 @@
 import 'package:calendaroffactory/edit_shift_screen/edit_shift_screen.dart';
 import 'package:calendaroffactory/models/shift.dart';
+import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ShiftRow extends StatelessWidget {
   final Shift shift;
@@ -11,22 +13,14 @@ class ShiftRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8.0),
-      decoration: const BoxDecoration(
-        border: const Border(
-          top: const BorderSide(
-            width: 0.8,
-            color: Colors.black12,
-          ),
-        ),
-      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Flexible(
+          Expanded(
             child: Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Text(
-                'Смена ${shift.name}',
+                shift.name,
                 style: const TextStyle(fontSize: 25),
                 overflow: TextOverflow.fade,
                 softWrap: false,
@@ -35,9 +29,29 @@ class ShiftRow extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shift),
-            icon: const Icon(Icons.info_outline),
+            onPressed: () {
+              if (shift.showOnMainScreen) {
+                Provider.of<Timetables>(context, listen: false).hideShiftOnMainScreen(shift.id);
+              } else {
+                Provider.of<Timetables>(context, listen: false).showShiftOnMainScreen(shift.id);
+              }
+            },
+            icon: Icon(
+              shift.showOnMainScreen ? Icons.visibility : Icons.visibility_off,
+              color: Theme.of(context).primaryColor,
+            ),
             iconSize: 30,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 8.0),
+            child: IconButton(
+              onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shift),
+              icon: Icon(
+                Icons.info_outline,
+                color: Theme.of(context).primaryColor,
+              ),
+              iconSize: 30,
+            ),
           ),
         ],
       ),

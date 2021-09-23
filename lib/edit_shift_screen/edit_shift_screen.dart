@@ -73,12 +73,12 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
                 style: const TextStyle(fontSize: 25),
               ),
             ),
-            const Divider(
+            Divider(
               height: 40,
               thickness: 2,
               indent: 5,
               endIndent: 5,
-              color: Colors.blue,
+              color: Theme.of(context).primaryColorLight,
             ),
             Form(
               key: _form,

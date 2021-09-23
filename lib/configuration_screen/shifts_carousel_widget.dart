@@ -35,7 +35,7 @@ class _ShiftsCarouselState extends State<ShiftsCarousel> {
             var shifts = i.value;
             return Builder(
               builder: (BuildContext context) {
-                return ListView.builder(
+                return ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
                   padding: const EdgeInsets.all(8),
                   itemBuilder: (ctx, index) {
@@ -43,13 +43,16 @@ class _ShiftsCarouselState extends State<ShiftsCarousel> {
                   },
                   shrinkWrap: true,
                   itemCount: shifts.length,
+                  separatorBuilder: (context, index) {
+                    return Divider(thickness: 2, color: Theme.of(context).primaryColorLight,);
+                  },
                 );
               },
             );
           }).toList(),
           carouselController: _controller,
           options: CarouselOptions(
-            viewportFraction: 0.95,
+            viewportFraction: 1,
             aspectRatio: 3 / 4,
             onPageChanged: _changeTab,
           ),

@@ -108,6 +108,21 @@ class Timetables with ChangeNotifier {
     notifyListeners();
   }
 
+  void showShiftOnMainScreen(int shiftId) {
+    _shifts.where((element) => shiftId == element.id).forEach((shift) {
+      shift.showOnMainScreen = true;
+      databaseService.upsertShiftData(
+        CustomShiftData(
+          shift.id,
+          shift.name,
+          shift.description,
+          shift.showOnMainScreen,
+        ),
+      );
+    });
+    notifyListeners();
+  }
+
   void hideShiftOnMainScreen(int shiftId) {
     _shifts.where((element) => element.id == shiftId).forEach((shift) {
       shift.showOnMainScreen = false;
