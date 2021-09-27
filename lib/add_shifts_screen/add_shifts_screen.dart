@@ -58,9 +58,7 @@ class _AddShiftsScreenState extends State<AddShiftsScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: ListView(
           children: [
             CustomDropdown<Timetable>(
               label: 'График',

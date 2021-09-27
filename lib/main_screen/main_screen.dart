@@ -83,12 +83,15 @@ class _MainScreenState extends State<MainScreen> {
     final length = shifts.length;
     Widget result;
     if (length == 0) {
-      result = const Center(
-        child: const Text(
-          'Пожалуйста, добавьте хотя бы одну смену',
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 25,
+      result = const Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 50.0),
+        child: const Center(
+          child: const Text(
+            'Пожалуйста, добавьте хотя бы одну смену',
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 25,
+            ),
           ),
         ),
       );

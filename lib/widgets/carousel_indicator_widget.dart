@@ -12,9 +12,11 @@ class CarouselIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: _generateIndicator(),
+    return FittedBox(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: _generateIndicator(),
+      ),
     );
   }
 
@@ -33,7 +35,6 @@ class CarouselIndicator extends StatelessWidget {
                       )
                     : Text(
                         entry.value.defaultName,
-                        overflow: TextOverflow.fade,
                         style: TextStyle(color: Colors.black38, fontSize: 15),
                       ),
               ),
