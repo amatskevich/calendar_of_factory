@@ -30,6 +30,10 @@ class MultiRowWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            const Icon(
+              Icons.calendar_today,
+              size: 25,
+            ),
             Expanded(
               child: Column(
                 children: [
@@ -49,6 +53,7 @@ class MultiRowWidget extends StatelessWidget {
             IconButton(
               onPressed: () => Navigator.of(context).pushNamed(EditShiftScreen.routeName, arguments: shift),
               icon: const Icon(Icons.info_outline),
+              iconSize: 30,
             ),
           ],
         ),

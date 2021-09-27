@@ -24,6 +24,13 @@ class Info extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            const Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5.0),
+              child: const Icon(
+                Icons.calendar_today,
+                size: 25,
+              ),
+            ),
             Expanded(
               child: Column(
                 children: [
