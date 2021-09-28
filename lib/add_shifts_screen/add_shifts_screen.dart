@@ -24,8 +24,10 @@ class _AddShiftsScreenState extends State<AddShiftsScreen> {
     setState(() {
       _selectedShifts.clear();
       _selectedTimesheet = selectedTimesheet;
-      _shifts = Provider.of<Timetables>(context, listen: false).getShiftsByTimetableType(selectedTimesheet.type)
-          .where((element) => !element.showOnMainScreen).toList();
+      _shifts = Provider.of<Timetables>(context, listen: false)
+          .getShiftsByTimetableType(selectedTimesheet.type)
+          .where((element) => !element.showOnMainScreen)
+          .toList();
     });
   }
 
@@ -57,7 +59,7 @@ class _AddShiftsScreenState extends State<AddShiftsScreen> {
         title: const FittedBox(child: const Text('Добавление смены')),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 25.0),
         child: ListView(
           children: [
             CustomDropdown<Timetable>(
@@ -101,7 +103,8 @@ class _AddShiftsScreenState extends State<AddShiftsScreen> {
                       style: const TextStyle(fontSize: 20),
                     ),
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(_selectedShifts.isNotEmpty ? Colors.lightGreen : Colors.lightGreen.shade200),
+                      backgroundColor: MaterialStateProperty.all(
+                          _selectedShifts.isNotEmpty ? Colors.lightGreen : Colors.lightGreen.shade200),
                       foregroundColor: MaterialStateProperty.all(Colors.white),
                     ),
                   ),

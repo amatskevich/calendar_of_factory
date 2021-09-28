@@ -68,6 +68,7 @@ class _MultiViewWidgetState extends State<MultiViewWidget> {
           }).toList(),
           carouselController: _controller,
           options: CarouselOptions(
+            initialPage: _current,
             viewportFraction: 0.95,
             aspectRatio: 3 / 4,
             onPageChanged: _changeTab,
