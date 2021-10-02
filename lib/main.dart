@@ -2,7 +2,6 @@ import 'package:calendaroffactory/add_shifts_screen/add_shifts_screen.dart';
 import 'package:calendaroffactory/providers/selected_date.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'about_screen/about_screen.dart';
@@ -42,12 +41,6 @@ class MyApp extends StatelessWidget {
           title: 'Смены Полимира',
           initialRoute: '/',
           theme: Provider.of<UserSettings>(ctx, listen: true).getUserTheme(),
-          localizationsDelegates: [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: [Locale('ru', '')],
           routes: {
             '/': (context) => MainScreen(),
             CalendarScreen.routeName: (_) => CalendarScreen(),

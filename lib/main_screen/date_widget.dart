@@ -1,25 +1,12 @@
 import 'package:calendaroffactory/providers/selected_date.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import 'date_arrow_button.dart';
 
 class DateInfo extends StatelessWidget {
-  void _presentDatePicker(BuildContext context) {
-    showDatePicker(
-      context: context,
-      locale: const Locale('ru', ''),
-      initialDate: Provider.of<SelectedDate>(context, listen: false).selectedDate,
-      firstDate: DateTime(2020),
-      lastDate: DateTime(2100),
-    ).then((pickedDate) {
-      if (pickedDate == null) {
-        return;
-      }
-      Provider.of<SelectedDate>(context, listen: false).selectedDate = pickedDate;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +32,25 @@ class DateInfo extends StatelessWidget {
                   ),
                 );
               }),
-              onPressed: () => _presentDatePicker(context),
+              onPressed: () async {
+                var datePicked = await DatePicker.showSimpleDatePicker(
+                  context,
+                  initialDate: Provider.of<SelectedDate>(context, listen: false).selectedDate,
+                  firstDate: DateTime(2020),
+                  lastDate: DateTime(2100),
+                  dateFormat: 'dd-MMMM-yyyy',
+                  locale: DateTimePickerLocale.ru,
+                  looping: true,
+                  pickerMode: DateTimePickerMode.date,
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                  cancelText: 'Отмена',
+                  confirmText: 'Ок',
+                  titleText: 'Выбор даты'
+                );
+                if (datePicked != null) {
+                  Provider.of<SelectedDate>(context, listen: false).selectedDate = datePicked;
+                }
+              },
             ),
           ),
           DateArrowButton(

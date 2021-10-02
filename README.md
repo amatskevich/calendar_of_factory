@@ -10,3 +10,9 @@ Kinds of schedule:
 - 2 shifts of twelve hours.
 
 ## TODO write valuable README file 
+
+#Build signing APK
+1. Enter `cd [project]`
+2. Run `flutter build apk`
+    (The flutter build command defaults to --release.)
+3. `build/app/outputs/apk/release/app-release.apk`
