@@ -39,11 +39,13 @@ class Timetables with ChangeNotifier {
     timetableNumber: "График №15",
   );
 
-  final databaseService = DatabaseService();
+  final databaseService;
 
-  Timetables() {
+  Timetables() : databaseService = DatabaseService() {
     _loadShiftData();
   }
+
+  Timetables.forTests() : databaseService = DatabaseService.forTests();
 
   void _loadShiftData() {
     databaseService.getAllShiftDatas().then((datas) {

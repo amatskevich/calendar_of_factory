@@ -12,6 +12,8 @@ class DatabaseService {
     return _instance;
   }
 
+  DatabaseService.forTests();
+
   DatabaseService._internal() {
     initDatabase();
   }

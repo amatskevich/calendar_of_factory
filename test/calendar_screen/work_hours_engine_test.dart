@@ -4,9 +4,11 @@ import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('TTT', () {
+  var timetables = Timetables.forTests();
+
+  test('8 B', () {
     var shiftPositions = [
-      ...Timetables().shifts.firstWhere((element) => element.id == 7).positions
+      ...timetables.shifts.firstWhere((element) => element.id == 7).positions
     ];
     List<Position?> monthPositions = [
       null,
@@ -24,5 +26,6 @@ void main() {
     expect(calculateWorkHoursData.normalHours, '139ч');
     expect(calculateWorkHoursData.overHours, '13ч 30мин');
     expect(calculateWorkHoursData.holidayHours, '25ч 30мин');
+    expect(calculateWorkHoursData.amountOfWorkDays, '19');
   });
 }

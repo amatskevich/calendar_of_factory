@@ -4,8 +4,10 @@ import 'package:calendaroffactory/providers/timetables.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  var timetables = Timetables.forTests();
+
   group('timetable 12: Test calculation position for day', () {
-    var shifts = Timetables().getShiftsByTimetableType(TimetableType.TWELFTH_30);
+    var shifts = timetables.getShiftsByTimetableType(TimetableType.TWELFTH_30);
     var day = DateTime(2021, 7, 24);
 
     test('Shift A', () {
@@ -38,7 +40,7 @@ void main() {
   });
 
   group('timetable 8: Test calculation position for day', () {
-    var shifts = Timetables().getShiftsByTimetableType(TimetableType.EIGHT_4);
+    var shifts = timetables.getShiftsByTimetableType(TimetableType.EIGHT_4);
     var day = DateTime(2021, 7, 25);
 
     test('Shift A', () {
@@ -78,7 +80,7 @@ void main() {
   });
 
   group('timetable DAY: Test calculation position for day', () {
-    var shifts = Timetables().getShiftsByTimetableType(TimetableType.DAY_15);
+    var shifts = timetables.getShiftsByTimetableType(TimetableType.DAY_15);
     var day = DateTime(2021, 7, 24);
 
     test('Shift 1', () {
@@ -97,7 +99,7 @@ void main() {
   });
 
   test('Test month', () {
-    var shifts = Timetables().getShiftsByTimetableType(TimetableType.EIGHT_4);
+    var shifts = timetables.getShiftsByTimetableType(TimetableType.EIGHT_4);
     var day = DateTime(2021, 8, 25);
     var shift = shifts.firstWhere((element) => element.defaultName == 'Б');
 
