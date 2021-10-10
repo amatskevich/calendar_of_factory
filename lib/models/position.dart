@@ -10,6 +10,7 @@ class Position {
   final double normalHours;
   final String description;
   final int order;
+  final bool isStartWork;
 
   const Position({
     required this.id,
@@ -21,5 +22,6 @@ class Position {
     required this.normalHours,
     required this.description,
     required this.order,
+    required this.isStartWork,
   });
 }

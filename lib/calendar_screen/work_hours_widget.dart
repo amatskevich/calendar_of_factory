@@ -39,6 +39,7 @@ class WorkHours extends StatelessWidget {
           _generateRow('Норма рабочего времени:', workHoursData.normalHours),
           _generateRow('Переработанные часы:', workHoursData.overHours),
           _generateRow('Праздничные часы:', workHoursData.holidayHours),
+          _generateRow('Количество смен:', workHoursData.amountOfWorkDays),
         ],
       ),
     );

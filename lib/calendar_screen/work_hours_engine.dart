@@ -52,6 +52,7 @@ class WorkHoursEngine {
     var fullHours = 0.0;
     var holidayHours = 0.0;
     var normalHours = 0.0;
+    var startWork = 0;
     var holidays = _getHolidaysByMonthYear(month: month, year: year);
     var dayOfMonth = DateTime(year, month, 1);
     positions.where((element) => element != null).forEach((position) {
@@ -66,6 +67,9 @@ class WorkHoursEngine {
           normalHours -= 1;
         }
       }
+      if (position.isStartWork) {
+        ++startWork;
+      }
       dayOfMonth = dayOfMonth.add(const Duration(days: 1));
     });
     return WorkHoursData(
@@ -73,6 +77,7 @@ class WorkHoursEngine {
       overHours: _convertHoursToString(fullHours - normalHours),
       holidayHours: _convertHoursToString(holidayHours),
       normalHours: _convertHoursToString(normalHours),
+      amountOfWorkDays: startWork.toString(),
     );
   }
 
@@ -93,11 +98,13 @@ class WorkHoursData {
   final String overHours;
   final String holidayHours;
   final String normalHours;
+  final String amountOfWorkDays;
 
   const WorkHoursData({
     required this.fullHours,
     required this.overHours,
     required this.holidayHours,
     required this.normalHours,
+    required this.amountOfWorkDays,
   });
 }

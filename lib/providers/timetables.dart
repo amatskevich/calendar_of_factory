@@ -251,6 +251,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'В день',
       order: 1,
+      isStartWork: true,
     ),
     const Position(
       id: 2,
@@ -262,6 +263,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'В день',
       order: 2,
+      isStartWork: true,
     ),
     const Position(
       id: 3,
@@ -273,6 +275,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'Выходной',
       order: 3,
+      isStartWork: false,
     ),
     const Position(
       id: 4,
@@ -284,6 +287,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'В ночь',
       order: 4,
+      isStartWork: true,
     ),
     const Position(
       id: 5,
@@ -295,6 +299,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'В ночь',
       order: 5,
+      isStartWork: true,
     ),
     const Position(
       id: 6,
@@ -306,6 +311,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'Отсыпной',
       order: 6,
+      isStartWork: false,
     ),
     const Position(
       id: 7,
@@ -317,6 +323,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'Выходной',
       order: 7,
+      isStartWork: false,
     ),
     const Position(
       id: 8,
@@ -328,6 +335,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'Выходной',
       order: 8,
+      isStartWork: false,
     ),
   ];
 
@@ -342,6 +350,7 @@ class Timetables with ChangeNotifier {
       normalHours: 7,
       description: 'В ночь',
       order: 1,
+      isStartWork: true,
     ),
     const Position(
       id: 10,
@@ -353,6 +362,7 @@ class Timetables with ChangeNotifier {
       normalHours: 7,
       description: 'В ночь',
       order: 2,
+      isStartWork: true,
     ),
     const Position(
       id: 11,
@@ -364,6 +374,7 @@ class Timetables with ChangeNotifier {
       normalHours: 7,
       description: 'Отсыпной',
       order: 3,
+      isStartWork: false,
     ),
     const Position(
       id: 12,
@@ -375,6 +386,7 @@ class Timetables with ChangeNotifier {
       normalHours: 7,
       description: 'Выходной',
       order: 4,
+      isStartWork: false,
     ),
     const Position(
       id: 13,
@@ -386,6 +398,7 @@ class Timetables with ChangeNotifier {
       normalHours: 7,
       description: 'Выходной',
       order: 5,
+      isStartWork: false,
     ),
     const Position(
       id: 14,
@@ -397,6 +410,7 @@ class Timetables with ChangeNotifier {
       normalHours: 7,
       description: 'Вечерняя',
       order: 6,
+      isStartWork: true,
     ),
     const Position(
       id: 15,
@@ -408,6 +422,7 @@ class Timetables with ChangeNotifier {
       normalHours: 7,
       description: 'Вечерняя',
       order: 7,
+      isStartWork: true,
     ),
     const Position(
       id: 16,
@@ -419,6 +434,7 @@ class Timetables with ChangeNotifier {
       normalHours: 7,
       description: 'Выходной',
       order: 8,
+      isStartWork: false,
     ),
     const Position(
       id: 17,
@@ -430,6 +446,7 @@ class Timetables with ChangeNotifier {
       normalHours: 7,
       description: 'С утра',
       order: 9,
+      isStartWork: true,
     ),
     const Position(
       id: 18,
@@ -441,6 +458,7 @@ class Timetables with ChangeNotifier {
       normalHours: 7,
       description: 'С утра',
       order: 10,
+      isStartWork: true,
     ),
   ];
 
@@ -455,6 +473,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'Выходной',
       order: 1,
+      isStartWork: false,
     ),
     const Position(
       id: 20,
@@ -466,6 +485,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'Рабочий',
       order: 2,
+      isStartWork: true,
     ),
     const Position(
       id: 21,
@@ -477,6 +497,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'Рабочий',
       order: 3,
+      isStartWork: true,
     ),
     const Position(
       id: 22,
@@ -488,6 +509,7 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'Выходной',
       order: 4,
+      isStartWork: false,
     ),
   ];
 }
