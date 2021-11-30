@@ -16,3 +16,9 @@ Kinds of schedule:
 2. Run `flutter build apk`
     (The flutter build command defaults to --release.)
 3. `build/app/outputs/apk/release/app-release.apk`
+
+#Build signing app bundle
+1. Enter `cd [project]`
+2. Run `flutter build appbundle`
+    (The flutter build command defaults to --release.)
+3. `build/app/outputs/bundle/release/app-release.aab`
