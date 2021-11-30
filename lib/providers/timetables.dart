@@ -39,6 +39,14 @@ class Timetables with ChangeNotifier {
     timetableNumber: "График №15",
   );
 
+  static const _timetableTwelfthNaftan = const Timetable(
+    id: 4,
+    type: TimetableType.TWELFTH_NAFTAN,
+    name: '4 бригады 12ч (Нафтан)',
+    defaultName: '4 бригады 12ч (Нафтан)',
+    timetableNumber: "",
+  );
+
   final databaseService;
 
   Timetables() : databaseService = DatabaseService() {
@@ -61,7 +69,12 @@ class Timetables with ChangeNotifier {
     });
   }
 
-  List<Timetable> get timetables => [_timetableTwelfth30, _timetableEight4, _timetableDay15];
+  List<Timetable> get timetables => [
+    _timetableTwelfth30,
+    _timetableEight4,
+    _timetableDay15,
+    _timetableTwelfthNaftan,
+  ];
 
   List<Shift> get shifts => [..._shifts];
 
@@ -239,6 +252,42 @@ class Timetables with ChangeNotifier {
       description: '',
       positions: _day15Positions,
       firstDate: DateTime(2016, 2, 20),
+    ),
+    Shift(
+      id: 12,
+      timetable: _timetableTwelfthNaftan,
+      defaultName: 'Бригада 1',
+      name: 'Бригада 1',
+      description: '',
+      positions: _twelfthNaftanPositions,
+      firstDate: DateTime(2020, 1, 2),
+    ),
+    Shift(
+      id: 13,
+      timetable: _timetableTwelfthNaftan,
+      defaultName: 'Бригада 2',
+      name: 'Бригада 2',
+      description: '',
+      positions: _twelfthNaftanPositions,
+      firstDate: DateTime(2020, 1, 8),
+    ),
+    Shift(
+      id: 14,
+      timetable: _timetableTwelfthNaftan,
+      defaultName: 'Бригада 3',
+      name: 'Бригада 3',
+      description: '',
+      positions: _twelfthNaftanPositions,
+      firstDate: DateTime(2020, 1, 6),
+    ),
+    Shift(
+      id: 15,
+      timetable: _timetableTwelfthNaftan,
+      defaultName: 'Бригада 4',
+      name: 'Бригада 4',
+      description: '',
+      positions: _twelfthNaftanPositions,
+      firstDate: DateTime(2020, 1, 4),
     ),
   ];
 
@@ -511,6 +560,105 @@ class Timetables with ChangeNotifier {
       normalHours: 8,
       description: 'Выходной',
       order: 4,
+      isStartWork: false,
+    ),
+  ];
+
+  static const _twelfthNaftanPositions = const [
+    const Position(
+      id: 23,
+      timetableId: 4,
+      name: '1-я С УТРА',
+      sign: '8',
+      color: colorInDay,
+      workHours: 12,
+      normalHours: 8,
+      description: 'В день',
+      order: 1,
+      isStartWork: true,
+    ),
+    const Position(
+      id: 24,
+      timetableId: 4,
+      name: '2-я С УТРА',
+      sign: '8',
+      color: colorInDay,
+      workHours: 12,
+      normalHours: 8,
+      description: 'В день',
+      order: 2,
+      isStartWork: true,
+    ),
+    const Position(
+      id: 25,
+      timetableId: 4,
+      name: 'ВЫХОДНОЙ',
+      sign: '*',
+      color: colorDayOff,
+      workHours: 0,
+      normalHours: 8,
+      description: 'Выходной',
+      order: 3,
+      isStartWork: false,
+    ),
+    const Position(
+      id: 26,
+      timetableId: 4,
+      name: 'ВЫХОДНОЙ',
+      sign: '*',
+      color: colorDayOff,
+      workHours: 0,
+      normalHours: 8,
+      description: 'Выходной',
+      order: 4,
+      isStartWork: false,
+    ),
+    const Position(
+      id: 27,
+      timetableId: 4,
+      name: 'В НОЧЬ',
+      sign: '20',
+      color: colorInNight,
+      workHours: 4,
+      normalHours: 8,
+      description: 'В ночь',
+      order: 5,
+      isStartWork: true,
+    ),
+    const Position(
+      id: 28,
+      timetableId: 4,
+      name: 'С НОЧИ В НОЧЬ',
+      sign: '20',
+      color: colorInNight,
+      workHours: 12,
+      normalHours: 8,
+      description: 'В ночь',
+      order: 6,
+      isStartWork: true,
+    ),
+    const Position(
+      id: 29,
+      timetableId: 4,
+      name: 'ОТСЫПНОЙ',
+      sign: 'О',
+      color: colorAfterNight,
+      workHours: 8,
+      normalHours: 8,
+      description: 'Отсыпной',
+      order: 7,
+      isStartWork: false,
+    ),
+    const Position(
+      id: 30,
+      timetableId: 4,
+      name: 'ЗАВТРА С УТРА',
+      sign: '*',
+      color: colorDayOff,
+      workHours: 0,
+      normalHours: 8,
+      description: 'Выходной',
+      order: 8,
       isStartWork: false,
     ),
   ];

@@ -65,7 +65,7 @@ class _AddShiftsScreenState extends State<AddShiftsScreen> {
             CustomDropdown<Timetable>(
               label: 'График',
               items: _timetables,
-              nameFunc: (Timetable t) => '${t.name} (${t.timetableNumber})',
+              nameFunc: (Timetable t) => '${t.name}' + (t.timetableNumber.isNotEmpty ? '(${t.timetableNumber})' : ''),
               func: _selectTimesheet,
             ),
             Visibility(
