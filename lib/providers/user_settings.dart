@@ -12,11 +12,21 @@ class UserSettings with ChangeNotifier {
       colorScheme: ColorScheme.fromSwatch().copyWith(
         secondary: Colors.purple.shade400,
       ),
+      appBarTheme: AppBarTheme(
+        color: Colors.purple.shade400,
+      ),
       brightness: Brightness.light,
       scaffoldBackgroundColor: const Color(0xFFf3e4f5),
     ),
     vasilky: ThemeData(
       primarySwatch: Colors.blue,
+      primaryColor: Colors.blue.shade400,
+      colorScheme: ColorScheme.fromSwatch().copyWith(
+        secondary: Colors.blue.shade400,
+      ),
+      appBarTheme: AppBarTheme(
+        color: Colors.blue.shade400,
+      ),
       brightness: Brightness.light,
       scaffoldBackgroundColor: const Color(0xFFe3f2fd),
     ),
@@ -25,6 +35,9 @@ class UserSettings with ChangeNotifier {
       primaryColor: Colors.red.shade400,
       colorScheme: ColorScheme.fromSwatch().copyWith(
         secondary: Colors.red.shade400,
+      ),
+      appBarTheme: AppBarTheme(
+        color: Colors.red.shade400,
       ),
       brightness: Brightness.light,
       scaffoldBackgroundColor: const Color(0xFFfee8e6),
