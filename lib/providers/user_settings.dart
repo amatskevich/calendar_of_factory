@@ -9,7 +9,9 @@ class UserSettings with ChangeNotifier {
     smellChabor: ThemeData(
       primarySwatch: Colors.purple,
       primaryColor: Colors.purple.shade400,
-      accentColor: Colors.purple.shade400,
+      colorScheme: ColorScheme.fromSwatch().copyWith(
+        secondary: Colors.purple.shade400,
+      ),
       brightness: Brightness.light,
       scaffoldBackgroundColor: const Color(0xFFf3e4f5),
     ),
@@ -21,7 +23,9 @@ class UserSettings with ChangeNotifier {
     longLife: ThemeData(
       primarySwatch: Colors.red,
       primaryColor: Colors.red.shade400,
-      accentColor: Colors.red.shade400,
+      colorScheme: ColorScheme.fromSwatch().copyWith(
+        secondary: Colors.red.shade400,
+      ),
       brightness: Brightness.light,
       scaffoldBackgroundColor: const Color(0xFFfee8e6),
     ),
