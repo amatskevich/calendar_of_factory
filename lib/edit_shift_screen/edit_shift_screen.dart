@@ -92,6 +92,7 @@ class _EditShiftScreenState extends State<EditShiftScreen> {
                         style: const TextStyle(fontSize: 20),
                       ),
                       value: _showOnMainScreen,
+                      inactiveTrackColor: Colors.grey,
                       onChanged: (value) {
                         setState(() {
                           _showOnMainScreen = value;

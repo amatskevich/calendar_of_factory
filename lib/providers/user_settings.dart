@@ -9,7 +9,8 @@ class UserSettings with ChangeNotifier {
     smellChabor: ThemeData(
       primarySwatch: Colors.purple,
       primaryColor: Colors.purple.shade400,
-      colorScheme: ColorScheme.fromSwatch().copyWith(
+      colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple).copyWith(
+        primary: Colors.purple.shade400,
         secondary: Colors.purple.shade400,
       ),
       appBarTheme: AppBarTheme(
@@ -21,7 +22,8 @@ class UserSettings with ChangeNotifier {
     vasilky: ThemeData(
       primarySwatch: Colors.blue,
       primaryColor: Colors.blue.shade400,
-      colorScheme: ColorScheme.fromSwatch().copyWith(
+      colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(
+        primary: Colors.blue.shade400,
         secondary: Colors.blue.shade400,
       ),
       appBarTheme: AppBarTheme(
@@ -33,7 +35,8 @@ class UserSettings with ChangeNotifier {
     longLife: ThemeData(
       primarySwatch: Colors.red,
       primaryColor: Colors.red.shade400,
-      colorScheme: ColorScheme.fromSwatch().copyWith(
+      colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red).copyWith(
+        primary: Colors.red.shade400,
         secondary: Colors.red.shade400,
       ),
       appBarTheme: AppBarTheme(
