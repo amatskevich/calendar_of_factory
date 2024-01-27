@@ -9,13 +9,11 @@ import 'calendar_screen/calendar_screen.dart';
 import 'configuration_screen/configuration_screen.dart';
 import 'edit_shift_screen/edit_shift_screen.dart';
 import 'main_screen/main_screen.dart';
-import 'persistent/database_service.dart';
 import 'providers/timetables.dart';
 import 'providers/user_settings.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  DatabaseService();
   var userTheme = await UserSettings.retrieveThemeFromPreferences();
   var carousel = await UserSettings.retrieveCarouselFromPreferences();
   runApp(MyApp(userTheme, carousel));
