@@ -21,7 +21,7 @@ class DateInfo extends StatelessWidget {
           ),
           Expanded(
             child: TextButton(
-              style: TextButton.styleFrom(primary: Theme.of(context).primaryColor),
+              style: TextButton.styleFrom(foregroundColor: Theme.of(context).primaryColor),
               child: Consumer<SelectedDate>(builder: (context, cart, child) {
                 return FittedBox(
                   fit: BoxFit.fitWidth,

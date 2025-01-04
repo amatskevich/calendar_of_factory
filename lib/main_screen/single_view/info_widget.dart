@@ -2,7 +2,6 @@ import 'package:calendaroffactory/calendar_screen/calendar_screen.dart';
 import 'package:calendaroffactory/edit_shift_screen/edit_shift_screen.dart';
 import 'package:calendaroffactory/models/shift.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class Info extends StatelessWidget {
   final Shift shift;

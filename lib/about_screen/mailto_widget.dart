@@ -29,6 +29,6 @@ class MailtoDeveloper extends StatelessWidget {
       to: [appMail],
       subject: 'Письмо от пользователя',
     );
-    await launch('$mailtoLink');
+    await launchUrl(Uri.parse('$mailtoLink'));
   }
 }
